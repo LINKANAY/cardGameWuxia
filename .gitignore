@@ -1,0 +1,34 @@
+# Dependencias
+node_modules/
+
+# Salidas de Vite y herramientas de desarrollo
+dist/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Variables de entorno y secretos locales
+.env
+.env.*
+!.env.example
+
+# Registros y archivos temporales
+*.log
+*.tmp
+*.temp
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Informes y capturas generados localmente
+evidencias/
+screenshots/
+playwright-report/
+test-results/
