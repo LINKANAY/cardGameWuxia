@@ -1,0 +1,4013 @@
+/* Sendero del Inmortal — sistema visual xianxia del front.
+   Tokens y superficies extraídos del monolito (css/01-base.css + css/05-tema.css,
+   capa "alta fantasía oriental" v35): fondo profundo con resplandores jade/oro/cin,
+   cristal semitransparente, bordes dorados, tipografía Noto Serif SC.
+   Regla: los adornos por pseudo-elementos (∈ ◈, reglas) van solo en títulos
+   decorativos; nunca en botones ni controles (los nombres accesibles se usan en tests). */
+
+:root {
+  --bg: #070d14;
+  --panel: #0f1d26;
+  --ink: #e8efe6;
+  --jade: #7be0b8;
+  --gold: #e3bf6a;
+  --cin: #d4513f;
+  --mut: #93aaa8;
+  --glass: linear-gradient(160deg, rgba(24, 40, 52, 0.78), rgba(10, 20, 26, 0.82));
+  --edge: rgba(227, 191, 106, 0.32);
+  --sombra: 0 8px 26px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --transicion: 0.16s ease;
+  font-family: 'Noto Serif SC', Georgia, serif;
+  line-height: 1.55;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -8%, rgba(60, 78, 150, 0.34), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(120, 36, 60, 0.26), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 0% 70%, rgba(24, 110, 92, 0.18), transparent 70%),
+    linear-gradient(#08111a, #07130f);
+}
+
+::selection {
+  background: rgba(227, 191, 106, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(227, 191, 106, 0.35) transparent;
+}
+
+/* ---------- Estructura ---------- */
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 16px 72px;
+}
+
+/* Pantallas anchas: el contenido aprovecha el hueco en lugar de
+   dejar 400+px vacíos a cada lado (980px fijos a 1920). */
+@media (min-width: 1121px) {
+  .app {
+    max-width: min(calc(100vw - 48px), 1500px);
+  }
+
+  /* La prosa no se estira hasta el borde: línea legible. */
+  .pantalla > p {
+    max-width: 120ch;
+  }
+
+}
+
+/* El combate vive sin menú: menos aire vertical para que quepa
+   sin scroll en monitores de 900–1080px de alto. */
+.app.en-combate {
+  padding-top: 8px;
+  padding-bottom: 16px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app.en-combate .pantalla.combate {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Con altura de sobra, el tablero rival/propio reparte el hueco en
+   vez de dejar un hueco muerto bajo la mano. */
+@media (min-width: 761px) {
+  .combate {
+    align-content: space-between;
+  }
+}
+
+.app.en-combate .intro-combate {
+  min-height: calc(100dvh - 32px);
+}
+
+.pantalla h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin: 0.35em 0 0.9em;
+  background: linear-gradient(180deg, #fff6d2, #e3bf6a 55%, #a8782a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px #000);
+}
+
+.pantalla h2 {
+  color: var(--jade);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 1.8rem 0 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pantalla h2::before {
+  content: '◈';
+  color: var(--cin);
+  font-size: 0.8em;
+}
+
+.pantalla h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(227, 191, 106, 0.65), transparent);
+}
+
+.pantalla h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+  color: var(--gold);
+}
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid rgba(227, 191, 106, 0.22);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.cabecera h1 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+/* ---------- Textos de estado ---------- */
+
+.aviso {
+  color: var(--mut);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.estado-servidor {
+  font-size: 0.88rem;
+  color: var(--mut);
+  letter-spacing: 0.08em;
+}
+
+.prologo {
+  white-space: pre-line;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: 18px 20px;
+  font-size: 1.02rem;
+}
+
+.banner-error {
+  background: linear-gradient(160deg, rgba(94, 26, 20, 0.8), rgba(48, 12, 10, 0.88));
+  border: 1px solid rgba(212, 81, 63, 0.6);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  color: #ffe4dc;
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- Botones ---------- */
+
+.boton,
+.boton {
+  font: inherit;
+  color: var(--ink);
+  background: linear-gradient(160deg, rgba(20, 36, 46, 0.92), rgba(9, 18, 24, 0.95));
+  border: 1px solid rgba(227, 191, 106, 0.35);
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition:
+    background var(--transicion),
+    border-color var(--transicion),
+    transform var(--transicion);
+}
+
+.boton:hover,
+.boton:hover {
+  background: linear-gradient(160deg, rgba(33, 60, 68, 0.95), rgba(14, 28, 36, 0.97));
+  border-color: var(--gold);
+}
+
+.boton:active,
+.boton:active {
+  transform: translateY(1px);
+}
+
+.boton:focus-visible,
+.boton:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+}
+
+.boton:disabled,
+.boton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.boton.principal,
+.boton.principal {
+  background: linear-gradient(180deg, #e3bf6a, #c1943f);
+  border-color: #e3bf6a;
+  color: #0b141b;
+  font-weight: 800;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.boton.principal:hover,
+.boton.principal:hover {
+  background: linear-gradient(180deg, #f0cd7b, #cfa349);
+}
+
+.boton.peligro,
+.boton.peligro {
+  background: linear-gradient(180deg, #a63529, #7a1f1a);
+  border-color: rgba(212, 81, 63, 0.75);
+  color: #ffffff;
+}
+
+.boton.peligro:hover,
+.boton.peligro:hover {
+  background: linear-gradient(180deg, #b83c2e, #8a2420);
+}
+
+.boton.fantasma,
+.boton.fantasma {
+  background: transparent;
+  border-color: transparent;
+  color: var(--mut);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.boton.fantasma:hover,
+.boton.fantasma:hover {
+  color: var(--jade);
+  background: rgba(123, 224, 184, 0.07);
+}
+
+/* ---------- Puerta: creación y lista de slots ---------- */
+
+.crear-slot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  padding: 12px 14px;
+}
+
+.crear-slot label {
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+.crear-slot input {
+  font: inherit;
+  color: var(--ink);
+  background: rgba(7, 13, 20, 0.72);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 8px 11px;
+  min-width: 220px;
+}
+
+.crear-slot input::placeholder {
+  color: #6d8a85;
+}
+
+.crear-slot input:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 1px;
+  border-color: var(--jade);
+}
+
+.lista-slots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fila-slot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  padding: 11px 15px;
+  transition:
+    border-color var(--transicion),
+    transform var(--transicion);
+}
+
+.fila-slot:hover {
+  border-color: rgba(227, 191, 106, 0.65);
+  transform: translateY(-1px);
+}
+
+.nombre-slot {
+  font-weight: 800;
+  color: var(--gold);
+  min-width: 120px;
+  letter-spacing: 0.04em;
+}
+
+.datos-slot {
+  color: var(--mut);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.acciones-slot {
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Puerta: sectas y bestiario ---------- */
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.tarjeta {
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-top: 2px solid rgba(227, 191, 106, 0.55);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: 15px 17px;
+  transition:
+    border-color var(--transicion),
+    transform var(--transicion);
+}
+
+.tarjeta:hover {
+  border-color: rgba(227, 191, 106, 0.7);
+  transform: translateY(-2px);
+}
+
+.tarjeta p {
+  margin: 0.4rem 0;
+}
+
+.mazo-base {
+  font-size: 0.85rem;
+  color: var(--mut);
+  border-top: 1px dashed rgba(227, 191, 106, 0.25);
+  padding-top: 9px;
+  margin-top: 11px;
+}
+
+.bestiario {
+  margin-top: 24px;
+}
+
+.bestiario summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 11px 15px;
+  transition: border-color var(--transicion);
+}
+
+.bestiario summary::-webkit-details-marker {
+  display: none;
+}
+
+.bestiario summary::after {
+  content: '▾';
+  color: var(--jade);
+  transition: transform var(--transicion);
+}
+
+.bestiario summary:hover {
+  border-color: rgba(227, 191, 106, 0.65);
+}
+
+.bestiario[open] summary {
+  border-radius: 10px 10px 0 0;
+}
+
+.bestiario[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.marco-tabla {
+  overflow-x: auto;
+  border: 1px solid var(--edge);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.bestiario table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: rgba(10, 20, 26, 0.6);
+}
+
+.bestiario th,
+.bestiario td {
+  border: 1px solid rgba(227, 191, 106, 0.16);
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.bestiario th {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: rgba(227, 191, 106, 0.08);
+}
+
+.bestiario tbody tr:nth-child(even) {
+  background: rgba(123, 224, 184, 0.04);
+}
+
+.bestiario tbody tr:hover {
+  background: rgba(123, 224, 184, 0.08);
+}
+
+/* ---------- Campamento: ficha del snapshot ---------- */
+
+.ficha {
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  margin: 0;
+  padding: 6px 0;
+  overflow: hidden;
+}
+
+.fila-ficha {
+  display: flex;
+  gap: 16px;
+  padding: 9px 18px;
+  border-bottom: 1px solid rgba(227, 191, 106, 0.14);
+}
+
+.fila-ficha:nth-child(even) {
+  background: rgba(123, 224, 184, 0.04);
+}
+
+.fila-ficha:last-child {
+  border-bottom: none;
+}
+
+.ficha dt {
+  font-weight: 800;
+  min-width: 190px;
+  color: var(--jade);
+  letter-spacing: 0.03em;
+}
+
+.ficha dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* ---------- Splash ---------- */
+
+.splash {
+  max-width: 760px;
+  margin: 7vh auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.splash h1 {
+  margin-bottom: 0.45em;
+}
+
+.splash h1::after {
+  content: '';
+  display: block;
+  width: 210px;
+  height: 2px;
+  margin: 0.45em auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.sigilo {
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 14px rgba(227, 191, 106, 0.45));
+  animation: latido 3.4s ease-in-out infinite;
+}
+
+.splash .prologo {
+  text-align: left;
+  width: 100%;
+}
+
+.splash .boton.principal,
+.splash .boton.principal {
+  margin-top: 8px;
+  padding: 10px 36px;
+  letter-spacing: 0.16em;
+}
+
+@keyframes latido {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- Pestañas del shell (Campaña / Alquimia / Guía) ---------- */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 14px 0 20px;
+}
+
+.tab {
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--mut);
+  background: transparent;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  color: var(--ink);
+  border-color: rgba(227, 191, 106, 0.5);
+}
+
+.tab.activa {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(227, 191, 106, 0.08);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+}
+
+/* ---------- Taller de alquimia: cabecera y materiales ---------- */
+
+.cabecera-taller .st {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 10px 0 4px;
+  color: var(--mut);
+  font-weight: 800;
+}
+
+.hint {
+  color: var(--jade);
+  font-weight: 800;
+  margin: 10px 0 4px;
+}
+
+/* ---------- Secciones colapsables (asec del monolito) ---------- */
+
+.asec {
+  margin: 14px 0;
+}
+
+.asec-h button {
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.asec-h button:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+}
+
+/* ---------- Rejilla de opciones (recetario / forja) ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.opt {
+  font: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 4px;
+  text-align: left;
+  color: var(--ink);
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.opt:hover:not(:disabled) {
+  border-color: var(--jade);
+}
+
+.opt:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.opt small {
+  flex-basis: 100%;
+  color: var(--mut);
+}
+
+.opt b {
+  color: var(--ink);
+}
+
+.opt.lockr {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.opt.lockr b {
+  color: var(--mut);
+}
+
+/* ---------- Iconos de píldora (glifos del monolito) ---------- */
+
+.pill {
+  --c1: #b6ffdc;
+  --c2: #2fc592;
+  --c3: #07382b;
+  --gl: rgba(80, 255, 180, 0.55);
+  display: inline-block;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 6px 2px 0;
+  background: radial-gradient(
+    circle at 32% 27%,
+    #fff 0 5%,
+    var(--c1) 13%,
+    var(--c2) 52%,
+    var(--c3) 100%
+  );
+  box-shadow:
+    inset -3px -4px 6px rgba(0, 0, 0, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.35),
+    0 0 9px var(--gl),
+    0 2px 3px rgba(0, 0, 0, 0.65);
+}
+
+.pill::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  top: 12%;
+  width: 34%;
+  height: 22%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  transform: rotate(-30deg);
+  filter: blur(0.5px);
+}
+
+.pill.heal {
+  --c1: #b6ffdc;
+  --c2: #2fc592;
+  --c3: #07382b;
+  --gl: rgba(80, 255, 180, 0.6);
+}
+
+.pill.dmg {
+  --c1: #ff9d8e;
+  --c2: #c4182e;
+  --c3: #3d0510;
+  --gl: rgba(255, 60, 70, 0.6);
+}
+
+.pill.gold {
+  --c1: #fff0b0;
+  --c2: #e3a93c;
+  --c3: #5a3606;
+  --gl: rgba(255, 210, 100, 0.7);
+  animation: pillg 3s ease-in-out infinite;
+}
+
+@keyframes pillg {
+  50% {
+    box-shadow:
+      inset -3px -4px 6px rgba(0, 0, 0, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.4),
+      0 0 16px rgba(255, 220, 120, 0.95),
+      0 2px 3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.pill.qi {
+  --c1: #b8e6ff;
+  --c2: #3a8fe0;
+  --c3: #0b2650;
+  --gl: rgba(90, 170, 255, 0.6);
+}
+
+.pill.draw {
+  --c1: #e2c9ff;
+  --c2: #8a52e0;
+  --c3: #28104d;
+  --gl: rgba(170, 110, 255, 0.6);
+}
+
+.pill.shield {
+  --c1: #f6ecd6;
+  --c2: #a58a60;
+  --c3: #3d2f18;
+  --gl: rgba(220, 190, 130, 0.5);
+}
+
+.pill.ice {
+  --c1: #e6fcff;
+  --c2: #5fd1e8;
+  --c3: #0d4a5c;
+  --gl: rgba(110, 230, 255, 0.6);
+}
+
+.pill.poison {
+  --c1: #dcffb4;
+  --c2: #6f9f1e;
+  --c3: #1d2a06;
+  --gl: rgba(150, 220, 60, 0.55);
+}
+
+/* ---------- Talismanes: papel amarillo con cinabrio ---------- */
+
+.tali {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  position: relative;
+  width: 17px;
+  height: 30px;
+  vertical-align: middle;
+  margin: 0 8px 2px 0;
+  color: #b5281e;
+  font: 900 12px/1 'Noto Serif SC', 'Songti SC', serif;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(120, 80, 10, 0.07) 0 2px,
+      transparent 2px 5px
+    ),
+    linear-gradient(90deg, #c9a24e, #f3dc9a 20%, #f9e9b4 50%, #f3dc9a 80%, #c9a24e);
+  border: 1.5px solid #b5281e;
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 0 1px rgba(90, 50, 0, 0.55),
+    inset 0 0 8px rgba(120, 70, 10, 0.35),
+    0 0 9px rgba(255, 200, 90, 0.45),
+    0 2px 3px rgba(0, 0, 0, 0.65);
+}
+
+.tali::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: 2px;
+  height: 2px;
+  background: #b5281e;
+  opacity: 0.85;
+}
+
+.tali::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 2px;
+  height: 6px;
+  margin-left: -1px;
+  background: #b5281e;
+  box-shadow:
+    -2px 1px 0 #b5281e,
+    2px 1px 0 #b5281e;
+}
+
+.tali i {
+  font-style: normal;
+  text-shadow: 0 0 1px rgba(181, 40, 30, 0.6);
+  transform: translateY(1px);
+}
+
+/* ---------- Fusión y refinado: fichas de cartas ---------- */
+
+.fila-cartas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.mini-carta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-width: 160px;
+}
+
+.mini-carta .color-rareza {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.mini-carta .copias {
+  color: var(--mut);
+}
+
+.acciones-cartas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.chip {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink);
+  background: rgba(123, 224, 184, 0.08);
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--jade);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+}
+
+/* ---------- Diálogo de confirmación (cfOpen del monolito) ---------- */
+
+.capa-oscuro {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 9, 13, 0.72);
+  display: grid;
+  place-items: center;
+  z-index: 60;
+  padding: 20px;
+}
+
+.carta-modal {
+  background: var(--panel);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  max-width: 420px;
+  width: 100%;
+  padding: 18px 20px;
+}
+
+.carta-modal h3 {
+  margin-top: 0;
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.carta-modal p {
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.aviso-peligro {
+  color: var(--cin) !important;
+  font-weight: 800;
+}
+
+.fila-modal {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.q {
+  color: var(--mut);
+  margin: 4px 0 8px;
+}
+
+/* ---------- Mazos: lista y editor (tab dk) ---------- */
+
+.st {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  align-items: baseline;
+  margin: 6px 0;
+  color: var(--mut);
+  font-weight: 800;
+}
+
+.opt.dki {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.opt.dki small {
+  flex-basis: auto;
+}
+
+.opt.dki > .chip {
+  align-self: flex-start;
+}
+
+.opt.dki .acciones-cartas {
+  width: 100%;
+}
+
+.opt.dki.on {
+  border-color: var(--jade);
+  background: rgba(123, 224, 184, 0.06);
+}
+
+.fila-nuevos-mazos {
+  margin: 14px 0;
+}
+
+.dkh {
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 12px;
+}
+
+.dkh .bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.dnm {
+  font: inherit;
+  font-weight: 800;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--edge);
+  border-radius: 6px;
+  padding: 6px 10px;
+  flex: 1;
+  /* Sin esto el input no baja de su ancho intrínseco (~280px) y la
+     barra desborda el viewport en móvil. */
+  min-width: 0;
+  max-width: 280px;
+}
+
+.dnm:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 1px;
+}
+
+/* Pantallas anchas: el header del editor va en fila (nombre,
+   curva y contadores) en vez de apilado a la izquierda dejando
+   ~950px vacíos a 1920. */
+@media (min-width: 1121px) {
+  .dkh {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+  }
+
+  .dkh .bar {
+    flex: 0 1 auto;
+    margin-bottom: 0;
+  }
+
+  .dkh .cur,
+  .dkh .st {
+    margin: 0;
+  }
+
+  .dkh .st {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+}
+
+.cur {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.cur > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 16px;
+}
+
+.cur span {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.cur i {
+  display: block;
+  width: 12px;
+  background: linear-gradient(180deg, var(--jade), rgba(123, 224, 184, 0.25));
+  border-radius: 3px 3px 0 0;
+}
+
+.cur small {
+  color: var(--mut);
+}
+
+.dact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.card-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 14px 0 8px;
+  color: var(--mut);
+  font-weight: 800;
+}
+
+.card-tools select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+.sects.wsel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 12px;
+}
+
+.chip.on {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(227, 191, 106, 0.1);
+}
+
+.dl {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Pantallas anchas: la lista de cartas pasa a varias columnas en vez
+   de filas interminables de 1500px. Va después de la regla base
+   porque si no gana `display: flex`. */
+@media (min-width: 1121px) {
+  .dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+    align-items: start;
+  }
+}
+
+.dr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.dr.in {
+  background: rgba(123, 224, 184, 0.07);
+}
+
+.dc {
+  font-weight: 800;
+  color: var(--gold);
+  min-width: 18px;
+  text-align: center;
+}
+
+.dn2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.dn2 small {
+  color: var(--mut);
+}
+
+.card-inspector {
+  color: var(--jade) !important;
+}
+
+.dq {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dq i {
+  font-style: normal;
+  color: var(--mut);
+  font-weight: 800;
+  min-width: 36px;
+  text-align: center;
+}
+
+.dq button {
+  font: inherit;
+  font-weight: 800;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(227, 191, 106, 0.1);
+  border: 1px solid var(--edge);
+  cursor: pointer;
+}
+
+.dq button:hover:not(:disabled) {
+  border-color: var(--jade);
+}
+
+.dq button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.nl {
+  color: var(--mut);
+  margin: 12px 0;
+}
+
+/* ---------- Mercado (tab mkt) ---------- */
+
+.mkg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.mki {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.mki-carta {
+  font: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mki-carta:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.mki-carta small {
+  color: var(--mut);
+}
+
+.mki-carta .color-rareza {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.mki .own {
+  color: var(--mut);
+  font-size: 0.85rem;
+}
+
+.bags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+
+/* Tile de la Bolsa (`bt` de css/01-base.css:509). */
+.bt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px;
+  text-align: center;
+  background: rgba(22, 40, 38, 0.9);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+}
+
+.bt b {
+  color: var(--gold);
+}
+
+.bt small {
+  color: var(--mut);
+  font-size: 0.7rem;
+}
+
+.bt.on {
+  border-color: var(--jade);
+}
+
+.bt .art {
+  margin-bottom: 4px;
+  width: 76px;
+}
+
+.bt svg.art {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  border: 1.5px solid #0d0806;
+}
+
+.bt .ico-material svg {
+  width: 34px;
+  height: 34px;
+}
+
+.bt-lote,
+.bt-vitrina {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: inherit;
+  font: inherit;
+}
+
+.bt-vitrina {
+  cursor: pointer;
+  text-align: left;
+}
+
+.bt-vitrina:hover {
+  border-color: var(--jade);
+}
+
+.bt-vitrina:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+}
+
+.bt-lote small,
+.bt-vitrina small {
+  color: var(--mut);
+}
+
+.lista-detalle {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lista-detalle li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.92rem;
+}
+
+.lista-detalle li span {
+  color: var(--mut);
+}
+
+.modal-detalle {
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-detalle h4 {
+  color: var(--jade);
+  font-size: 0.95rem;
+  margin: 12px 0 4px;
+}
+
+.evi-pill {
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
+}
+
+/* ---------- Gacha (Ceremonia) ---------- */
+
+.panel-gacha {
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-top: 8px;
+}
+
+.gacha-acciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.lista-probs {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  color: var(--mut);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.lista-probs li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.resultados-gacha {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+}
+
+.rejilla-recompensas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 10px 0 12px;
+}
+
+.recompensa {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.recompensa .rareza-gacha {
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.recompensa small {
+  color: var(--mut);
+}
+
+/* ---------- Mapa de la campaña (Campamento) ---------- */
+
+.mapa-campana {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.lv {
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--glass);
+}
+
+.lv.lock {
+  opacity: 0.55;
+}
+
+.lv .lh {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #1a2430, #243040);
+  user-select: none;
+}
+
+.lv .lh:hover {
+  filter: brightness(1.08);
+}
+
+.lv .lh:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: -2px;
+}
+
+.lv .lh b {
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.lv .lh span {
+  color: var(--mut);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.lv .en {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+  padding: 10px;
+}
+
+.nodeb {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--edge);
+  border-left: 3px solid var(--dc, var(--edge));
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.nodeb:hover:not(:disabled) {
+  border-color: var(--dc, var(--jade));
+  background: rgba(227, 191, 106, 0.08);
+}
+
+.nodeb:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nodeb.boss {
+  border-left-color: #b070e0;
+}
+
+.nodeb b {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.nodeb em {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.nodeb small {
+  color: var(--mut);
+  font-size: 0.8rem;
+}
+
+.nodeb .ck {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: var(--jade);
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* ---------- Combate (Fase 3) ---------- */
+/* Layout sin scroll: columna vertical del rival | escena central |
+   columna vertical del jugador con acciones | zoom lateral (hover). */
+.combate {
+  --carta-ancho: 118px;
+  --carta-alto: 216px;
+  display: grid;
+  /* Info reducida a columnas fijas de 150px; el tablero se lleva
+     el resto. Filas espejadas: rival (info izq | cartas der) y
+     jugador (cartas izq | info der) + zoom a la derecha. */
+  grid-template-columns: 150px minmax(0, 1fr) 150px minmax(150px, 200px);
+  gap: 8px;
+  align-items: stretch;
+}
+
+.combate .banner-error {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+.combate .lateral {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.combate .lateral-enemigo {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.combate .zona-rival {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+.combate .zona-propia {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+
+.combate .lateral-jugador {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.combate .zona-mano {
+  grid-column: 1 / 4;
+  grid-row: 4;
+}
+
+.zona-rival,
+.zona-propia,
+.zona-mano {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.barra-lado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: var(--glass);
+  font-weight: 800;
+}
+
+/* Barra vertical compacta: bloque reducido de 150px sin estirarse. */
+.lateral .barra-lado {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  margin: 0;
+  padding: 8px 6px;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.lateral .barra-lado .fig-heroe {
+  justify-content: center;
+}
+
+.lateral .barra-lado .fig {
+  width: 34px;
+  height: 46px;
+}
+
+.lateral .barra-lado b {
+  text-align: center;
+}
+
+/* Acciones del combate: fila centrada bajo la mano. */
+.acciones-combate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+/* Zoom lateral: carta ampliada al pasar el ratón (`#zoom` del monolito). */
+.zoom-combate {
+  grid-column: 4;
+  grid-row: 2 / 5;
+  position: sticky;
+  top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 300px;
+  max-height: calc(100dvh - 24px);
+  padding: 8px;
+  background: rgba(14, 27, 26, 0.92);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.zoom-combate .zph {
+  color: var(--mut);
+  font-size: 0.72rem;
+  text-align: center;
+  margin: 0;
+}
+
+.zoom-combate .cartacomate {
+  width: 168px;
+  min-width: 0;
+  max-width: none;
+  height: 284px;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.66);
+}
+
+/* Pantallas medianas: sin columna de zoom (se recupera el ancho). */
+@media (max-width: 1120px) {
+  .combate {
+    grid-template-columns: 140px minmax(0, 1fr) 140px;
+  }
+
+  .zoom-combate {
+    display: none;
+  }
+}
+
+/* Móvil: filas apiladas y barras en horizontal. */
+@media (max-width: 760px) {
+  .combate {
+    grid-template-columns: 1fr;
+    --carta-ancho: 104px;
+    --carta-alto: 196px;
+  }
+
+  .combate .banner-error {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .combate .lateral-enemigo {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .combate .zona-rival {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .combate .zona-propia {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .combate .lateral-jugador {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  .combate .zona-mano {
+    grid-column: 1;
+    grid-row: 6;
+  }
+
+  .lateral .barra-lado {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .acciones-combate button {
+    flex: 1 1 38%;
+  }
+}
+
+.barra-lado.rival {
+  border-color: rgba(196, 72, 61, 0.45);
+}
+
+.barra-lado.propio {
+  border-color: rgba(108, 196, 161, 0.45);
+}
+
+.barra-lado.objetivo-activo {
+  box-shadow: 0 0 0 2px rgba(227, 191, 106, 0.55);
+}
+
+/* Héroe rival clicable: reemplaza al botón «Atacar héroe». */
+.barra-lado.clic-objetivo {
+  cursor: crosshair;
+}
+
+.barra-lado.clic-objetivo:hover,
+.barra-lado.clic-objetivo:focus-visible {
+  background: rgba(227, 191, 106, 0.1);
+  outline: none;
+}
+
+.barra-lado.clic-objetivo:focus-visible {
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+.barra-lado .vida {
+  color: #e07a7a;
+}
+
+.barra-lado .escudo {
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(227, 191, 106, 0.5);
+}
+
+.barra-lado .qi {
+  color: var(--jade);
+}
+
+.barra-lado .mano-info,
+.barra-lado .mazo-info,
+.barra-lado .vacio-info {
+  color: var(--mut);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Contadores de pila que abren un visor (sólo el lado del jugador). */
+.barra-lado .pila-info {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--mut);
+  background: transparent;
+  border: 1px dashed var(--edge);
+  border-radius: 999px;
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+.barra-lado .pila-info:hover {
+  color: var(--ink);
+  border-color: var(--jade);
+}
+
+.tablero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: var(--carta-alto, 216px);
+  padding: 10px;
+  margin: 4px 0;
+  border: 1px dashed var(--edge);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.15);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tablero.seleccionable {
+  border-color: rgba(227, 191, 106, 0.55);
+}
+
+.tablero.oculto {
+  filter: opacity(0.45);
+}
+
+.tablero-vacio {
+  color: var(--mut);
+  margin: auto;
+  font-weight: 700;
+}
+
+.celda-tablero {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.acciones-celda {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.cartacomate {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: stretch;
+  /* Tamaño de carta constante en tablero, mano y visores. */
+  width: var(--carta-ancho, 118px);
+  min-width: var(--carta-ancho, 118px);
+  max-width: var(--carta-ancho, 118px);
+  height: var(--carta-alto, 216px);
+  padding: 8px 10px;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cartacomate:hover:not(:disabled) {
+  border-color: var(--jade);
+}
+
+.cartacomate:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.cartacomate.seleccionada {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.cartacomate.lista {
+  border-color: rgba(108, 196, 161, 0.55);
+}
+
+.cartacomate.provocar {
+  border-left: 3px solid #8fb8e0;
+}
+
+.cartacomate .coste {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.8rem;
+  background: rgba(108, 196, 161, 0.2);
+  color: var(--jade);
+}
+
+/* Cabecera: Qi a la izquierda, ataque/defensa en círculos como el Qi. */
+.cartacomate .fila-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cartacomate .fila-cabecera .coste {
+  margin-right: auto;
+}
+
+.cartacomate .badge-stat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.cartacomate .badge-stat.batq {
+  background: rgba(196, 72, 61, 0.22);
+  border: 1px solid rgba(224, 122, 122, 0.75);
+  color: #e07a7a;
+}
+
+.cartacomate .badge-stat.bvid {
+  background: rgba(217, 181, 91, 0.18);
+  border: 1px solid rgba(255, 217, 120, 0.75);
+  color: #ffd978;
+}
+
+.cartacomate .badge-stat.bqi {
+  background: rgba(217, 181, 91, 0.16);
+  border: 1px solid rgba(217, 181, 91, 0.7);
+  color: #ffd978;
+}
+
+.cartacomate .badge-stat.up {
+  border-color: #9fe8c8;
+  color: #9fe8c8;
+}
+
+/* `fmH` de js/04-mazos-formaciones.js:35: formación y runas activas. */
+.fmr {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+}
+
+.fmb,
+.rnb {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 1px 8px;
+  background: rgba(10, 20, 19, 0.85);
+}
+
+.fmb {
+  color: #ffd978;
+  border-color: #d9b55b;
+}
+
+.rnb {
+  color: #9fe8c8;
+  border-color: #6cc4a1;
+}
+
+/* --- Pantalla Formaciones (`frUI` de js/04-mazos-formaciones.js) --- */
+.fru {
+  margin: 4px 0 8px;
+  padding-left: 1.1em;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.leg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.leg .bg {
+  height: 1.7em;
+}
+
+.bg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  min-width: 2.3em;
+  height: 1.95em;
+  padding: 0 0.5em;
+  border-radius: 1em;
+  border: 2px solid #0d0806;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 3px #000;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.bg .ic {
+  font-size: 0.95em;
+  filter: drop-shadow(0 1px 0 #000);
+}
+
+.bg.a {
+  background: linear-gradient(#ff8a6a, #b3261e);
+}
+
+.bg.s {
+  background: linear-gradient(#ffd978, #9c7420);
+}
+
+.bg.h {
+  background: linear-gradient(#8fe8b4, #1f8a55);
+}
+
+.bg.q {
+  background: linear-gradient(#7fe3d4, #1c7c78);
+}
+
+.kl {
+  margin-top: 6px;
+}
+
+.kn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.74rem;
+  color: #cfe0d8;
+}
+
+.kn .kc {
+  display: inline-flex;
+  font-size: 0.8rem;
+}
+
+.kn .kc svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.fl {
+  margin: 6px 0 20px;
+}
+
+.fri {
+  display: flex;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid #2c4a44;
+}
+
+.fri.in {
+  background: rgba(108, 196, 161, 0.08);
+}
+
+.frt {
+  flex: none;
+  width: 84px;
+}
+
+.frt svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  border: 1.5px solid #0d0806;
+}
+
+.frb {
+  flex: 1;
+  min-width: 0;
+}
+
+.frb p {
+  margin: 3px 0 0;
+  font-size: 0.76rem;
+  line-height: 1.3;
+  color: #cfe0d8;
+}
+
+.frd {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  margin: 4px 0;
+}
+
+.cartacomate .marca {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--mut);
+  text-transform: uppercase;
+}
+
+.cartacomate .marca.hab {
+  color: #8fb8e0;
+}
+
+.cartacomate .marca.usada {
+  color: #c4483d;
+}
+
+/* Registro de combate: panel flotante (el botón vive en la columna del jugador). */
+.log-combate {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 30;
+  max-width: min(380px, calc(100vw - 20px));
+  padding: 8px 12px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: rgba(10, 20, 19, 0.96);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  font-size: 0.85rem;
+}
+
+.log-combate p {
+  margin: 2px 0;
+  color: var(--ink);
+}
+
+/* Carta de combate: texto de efectos (`descH`). */
+.cartacomate .carta-desc {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--mut);
+  line-height: 1.25;
+}
+
+.cartacomate.no .carta-desc,
+.cartacomate:disabled .carta-desc {
+  opacity: 0.85;
+}
+
+/* Visor de mazo / Agujero Negro (modal de solo lectura). */
+.visor-pila .mano.modal-mano {
+  max-height: 50vh;
+  overflow-y: auto;
+  justify-content: flex-start;
+}
+
+/* Bolsa de combate: lista de elementos cargados. */
+.bolsa-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.bolsa-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.bolsa-item span {
+  flex: 1;
+}
+
+.bolsa-item small {
+  color: var(--mut);
+}
+
+.recompensa-carta .recompensa-desc {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--mut);
+  opacity: 0.9;
+  line-height: 1.25;
+}
+
+.mano {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 8px 0;
+  min-height: 60px;
+}
+
+.pista-objetivo {
+  text-align: center;
+  font-weight: 800;
+  color: var(--gold);
+  margin: 6px 0;
+}
+
+.modal-combate {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.modal-combate h2 {
+  margin: 0;
+}
+
+.modal-combate .modal-mano {
+  max-width: 720px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.acciones-modal {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.resumen-campana {
+  max-width: 480px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.resumen-campana li {
+  margin-bottom: 8px;
+}
+
+button.peligro {
+  border-color: rgba(196, 72, 61, 0.55);
+  color: #e07a7a;
+}
+
+button.peligro:hover:not(:disabled) {
+  border-color: #c4483d;
+  background: rgba(196, 72, 61, 0.12);
+}
+
+/* ---------- Combate v44: slots, intro, bolsa, evento, EC ---------- */
+
+.cartacomate.no {
+  opacity: 0.55;
+  filter: grayscale(0.5);
+}
+
+.slot-celda {
+  display: inline-block;
+  /* Tamaño constante: la misma celda que una carta del tablero. */
+  width: var(--carta-ancho, 118px);
+  height: var(--carta-alto, 216px);
+  border: 1px dashed rgba(170, 190, 180, 0.28);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.burbuja {
+  align-self: center;
+  max-width: 560px;
+  margin: 4px auto;
+  padding: 6px 14px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* Intro del combate (storyHTML). */
+.intro-combate {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100dvh - 172px);
+}
+
+/* Escena de fondo (`scene(li)` del monolito): paisaje detrás de la ficha. */
+.scene-combate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.scene-combate svg.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-combate > *:not(.scene-combate) {
+  position: relative;
+  z-index: 1;
+}
+
+.intro-combate .ficha-intro {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 14px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.intro-combate .ficha-enemigo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+  padding: 10px 14px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.intro-combate .ficha-enemigo b {
+  font-size: 1.1rem;
+}
+
+.intro-combate .ficha-enemigo em {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.intro-combate .detalle-intro {
+  flex: 1;
+  min-width: 240px;
+}
+
+.intro-combate .detalle-intro h2 {
+  margin: 0 0 6px;
+}
+
+.intro-combate .frase-inicio {
+  font-style: italic;
+  color: var(--jade);
+}
+
+.intro-combate .aviso-muerte {
+  font-weight: 700;
+  color: #e07a7a;
+  font-size: 0.9rem;
+}
+
+.intro-combate .pildoras-inicio,
+.intro-combate .bolsa-inicio {
+  line-height: 1.7;
+}
+
+/* Píldoras: iconos (`pillIco` del monolito). */
+.pill {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #6cc4a1;
+  box-shadow: 0 0 4px rgba(108, 196, 161, 0.6);
+}
+
+.pill.gold {
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #d9b55b;
+  box-shadow: 0 0 4px rgba(217, 181, 91, 0.6);
+}
+
+.pill.dmg {
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #c4483d;
+  box-shadow: 0 0 4px rgba(196, 72, 61, 0.6);
+}
+
+.pill.poison {
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #8a6fc4;
+  box-shadow: 0 0 4px rgba(138, 111, 196, 0.6);
+}
+
+.pill.qi {
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #7be0b8;
+  box-shadow: 0 0 4px rgba(123, 224, 184, 0.6);
+}
+
+.pill.draw {
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #8fb8e0;
+  box-shadow: 0 0 4px rgba(143, 184, 224, 0.6);
+}
+
+.pill.ice {
+  background: radial-gradient(circle at 35% 30%, #fff6, transparent 55%),
+    #9ad7ec;
+  box-shadow: 0 0 4px rgba(154, 215, 236, 0.6);
+}
+
+.tali {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: -3px;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  background: rgba(227, 191, 106, 0.15);
+  color: var(--gold);
+  font-size: 0.65rem;
+  font-style: normal;
+}
+
+.tali i {
+  font-style: normal;
+}
+
+.chip.on {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+  background: rgba(227, 191, 106, 0.12);
+}
+
+/* Bolsa de píldoras durante el combate. */
+.bolsa-combate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  margin: 8px 0;
+  padding: 8px 12px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+}
+
+/* Modal de evento (`.pop`/`.evb` del monolito). */
+.modal-combate .evb {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(123, 224, 184, 0.18);
+  color: var(--jade);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.modal-combate .evb.ecb {
+  background: rgba(227, 191, 106, 0.18);
+  color: var(--gold);
+}
+
+.modal-combate .ec-list {
+  max-width: 420px;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* ---------- Botones globales (ronda de feedback) ----------
+   Los `<button>` sin clase usaban el estilo por defecto del navegador;
+   aquí se les da la misma piel cristal/dorada que `.boton`. Las
+   variantes `principal`/`peligro` ya existentes siguen mandando. */
+
+button {
+  font: inherit;
+  color: var(--ink);
+  background: linear-gradient(160deg, rgba(24, 44, 54, 0.94), rgba(9, 18, 24, 0.96));
+  border: 1px solid rgba(227, 191, 106, 0.4);
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow var(--transicion),
+    background var(--transicion),
+    border-color var(--transicion);
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--gold);
+  background: linear-gradient(160deg, rgba(38, 66, 74, 0.96), rgba(14, 28, 36, 0.98));
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(227, 191, 106, 0.18);
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+button.principal {
+  background: linear-gradient(180deg, #e3bf6a, #c1943f);
+  border-color: #e3bf6a;
+  color: #0b141b;
+  font-weight: 800;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+button.principal:hover:not(:disabled) {
+  background: linear-gradient(180deg, #f0cd7b, #cfa349);
+  border-color: #f0cd7b;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(227, 191, 106, 0.4);
+  transform: translateY(-1px);
+}
+
+button.peligro {
+  background: linear-gradient(180deg, rgba(88, 26, 22, 0.9), rgba(48, 12, 10, 0.94));
+}
+
+.chip {
+  transition:
+    transform 0.12s ease,
+    box-shadow var(--transicion),
+    background var(--transicion),
+    border-color var(--transicion);
+}
+
+.chip:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  background: rgba(123, 224, 184, 0.14);
+}
+
+.chip:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* ---------- Selección y golpes en cartas ---------- */
+
+.cartacomate {
+  transition:
+    transform 0.14s ease,
+    box-shadow var(--transicion),
+    border-color var(--transicion),
+    filter var(--transicion);
+}
+
+.cartacomate:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+.cartacomate.seleccionada {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 0 1px var(--gold),
+    0 10px 24px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(227, 191, 106, 0.35);
+  transform: translateY(-6px);
+  animation: carta-elegida 0.18s ease;
+}
+
+@keyframes carta-elegida {
+  from {
+    transform: translateY(0) scale(0.96);
+  }
+  to {
+    transform: translateY(-6px) scale(1);
+  }
+}
+
+@keyframes flash-golpe {
+  0% {
+    background-color: rgba(196, 72, 61, 0.55);
+    filter: brightness(1.6);
+  }
+  60% {
+    background-color: rgba(196, 72, 61, 0.28);
+  }
+  100% {
+    background-color: transparent;
+    filter: brightness(1);
+  }
+}
+
+@keyframes sacudida-golpe {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+
+.cartacomate.golpe {
+  animation:
+    flash-golpe 0.45s ease,
+    sacudida-golpe 0.35s ease;
+  border-color: rgba(212, 81, 63, 0.7);
+}
+
+.barra-lado.golpe {
+  animation:
+    flash-golpe 0.5s ease,
+    sacudida-golpe 0.4s ease;
+}
+
+.barra-lado .vida {
+  position: relative;
+}
+
+/* Daño flotante (−N) sobre la vida del lado golpeado. */
+.danio-flotante {
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%);
+  color: #ff6a6a;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow:
+    0 0 8px rgba(196, 72, 61, 0.8),
+    0 2px 3px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  animation: flotar-danio 0.65s ease-out forwards;
+}
+
+@keyframes flotar-danio {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.8);
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -4px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -26px) scale(1);
+  }
+}
+
+/* ---------- Modal de recompensas (claim de js/06-contenido.js:206) ---------- */
+
+.recompensas-modal {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.recompensa-carta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  min-width: 140px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  transition:
+    transform 0.14s ease,
+    box-shadow var(--transicion),
+    background var(--transicion);
+}
+
+.recompensa-carta small {
+  color: var(--mut);
+  font-size: 0.78rem;
+}
+
+.recompensa-carta .recompensa-elegir {
+  margin-top: 4px;
+  padding: 2px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.recompensa-carta:hover:not(:disabled) {
+  transform: translateY(-4px);
+  background: rgba(20, 34, 42, 0.85);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.5),
+    0 0 16px rgba(227, 191, 106, 0.3);
+}
+
+.recompensa-carta:disabled {
+  opacity: 0.5;
+}
+
+.recompensa-obtenida {
+  color: var(--jade);
+  font-weight: 700;
+}
+
+/* ---------- Perfil del cultivador (css/12-perfil-cultivador.css) ---------- */
+
+.cultivator-profile {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  gap: clamp(14px, 2.4vw, 26px);
+  margin: 0 0 10px;
+  padding: clamp(14px, 2.4vw, 24px);
+  border: 1px solid rgba(217, 181, 91, 0.5);
+  border-radius: 8px;
+  background: linear-gradient(
+    118deg,
+    rgba(25, 42, 38, 0.97),
+    rgba(13, 25, 24, 0.96) 58%,
+    rgba(34, 37, 27, 0.94)
+  );
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.4),
+    inset 0 1px rgba(240, 213, 137, 0.14);
+}
+
+.cultivator-profile .pf {
+  flex: 0 0 auto;
+}
+
+.cultivator-profile .pf .fig {
+  display: block;
+  width: 90px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.cultivator-profile .pi {
+  flex: 1;
+  min-width: 0;
+}
+
+.cultivator-profile .pi > h2 {
+  margin: 0 0 6px;
+  color: #f1dfaa;
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+}
+
+.cultivator-profile .pi > h2::before,
+.cultivator-profile .pi > h2::after {
+  display: none;
+}
+
+.cultivator-profile .reino-perfil {
+  color: var(--mut);
+  font-size: 0.86rem;
+}
+
+.cultivator-profile .reino-perfil b {
+  color: #e6c56e;
+}
+
+.cultivator-profile .lad {
+  display: flex;
+  gap: 5px;
+  margin: 8px 0 12px;
+}
+
+.cultivator-profile .nd {
+  height: 7px;
+  flex: 1;
+  max-width: 42px;
+  border-radius: 4px;
+  background: #344743;
+}
+
+.cultivator-profile .nd.on {
+  background: linear-gradient(90deg, #b38a37, #f5dc89);
+  box-shadow: 0 0 9px rgba(217, 181, 91, 0.33);
+}
+
+.cultivator-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 15px;
+  color: #d4dfd7;
+  font-size: 0.78rem;
+}
+
+.cultivator-stats > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 9px;
+  border: 1px solid rgba(200, 164, 74, 0.21);
+  border-radius: 4px;
+  background: rgba(7, 15, 14, 0.4);
+}
+
+.cultivator-stats > span b {
+  color: #f1d889;
+}
+
+.cultivator-stats .fallen-stat {
+  border-color: rgba(196, 72, 61, 0.44);
+  color: #f0c8bd;
+}
+
+.cultivator-stats .fallen-stat > span {
+  color: #e47767;
+  font-size: 1rem;
+}
+
+.cultivator-profile .ficha {
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.cultivator-profile .ficha dt {
+  min-width: 150px;
+}
+
+@media (max-width: 600px) {
+  .cultivator-profile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 13px;
+  }
+
+  .cultivator-profile .pf {
+    align-self: center;
+  }
+
+  .cultivator-profile .pf .fig {
+    width: 78px;
+    height: 104px;
+  }
+
+  .cultivator-profile .pi {
+    width: 100%;
+  }
+
+  .cultivator-profile .pi > h2 {
+    text-align: center;
+  }
+
+  .cultivator-profile .cultivator-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .cultivator-stats > span {
+    min-height: 34px;
+    padding: 5px 7px;
+    font-size: 0.71rem;
+  }
+
+  .cultivator-stats .fallen-stat {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---- Figuras SVG de enemigos/héroes (`fig` de js/05-arte.js:183) ---- */
+.fig {
+  width: 60px;
+  height: 80px;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.nodeb .fig {
+  width: 56px;
+  height: 74px;
+  margin: 0 0 2px;
+}
+
+.intro-combate .ficha-enemigo .fig {
+  width: 90px;
+  height: 120px;
+  margin: 0 auto;
+  display: block;
+}
+
+.barra-lado .fig-heroe {
+  display: inline-flex;
+  align-items: center;
+}
+
+.barra-lado .fig {
+  width: 60px;
+  height: 80px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* ---- Arte de cartas (`art()` de js/05-arte.js:148) ---- */
+.arte-carta {
+  display: block;
+}
+
+.arte-carta .art {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+.arte-carta.detalle {
+  width: 240px;
+  margin: 8px auto;
+}
+
+.ico-material {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ---- Guía: secciones (GS/GB de js/08-efectos.js:118-129) ---- */
+.gs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.gb {
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.22);
+  margin-bottom: 16px;
+}
+
+.gb h3 {
+  margin: 12px 0 6px;
+}
+
+.glk p {
+  margin: 4px 0;
+}
+
+.card-descripcion {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 2px;
+}
+
+.card-descripcion small {
+  color: var(--ink-2, #aab4c3);
+}
+
+/* ---- Bolsa Qiankun (bagUI) ---- */
+.qk-sub {
+  color: #9fb5b0;
+  margin: 0 0 10px;
+}
+
+.st-qk {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0 16px;
+  color: #cfe3df;
+  font-size: 0.92em;
+}
+
+.st-qk span {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(227, 191, 106, 0.18);
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+/* ---- Campamento: botón reiniciar (rstGame) ---- */
+.acciones-perfil {
+  margin-top: 12px;
+}
+
+.boton.peligro,
+.boton.peligro:hover {
+  background: linear-gradient(160deg, #6b1f1f, #3d1010);
+  border-color: #c4483d;
+  color: #f0d0cc;
+}
+
+.aviso-exito {
+  background: rgba(108, 196, 161, 0.15);
+  border: 1px solid rgba(108, 196, 161, 0.45);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  color: #b8e6cf;
+}
+
+/* ---------- Misiones (`misUI` de js/06-contenido.js:127) ---------- */
+/* Port de css/09-avisos-combate.css:6-30 con realce de las listas
+   para reclamar (fondo tintado + botón sólido jade) y plegado de las
+   ya reclamadas para que no ocupen espacio en la lista. */
+.mission-tracker {
+  position: sticky;
+  top: 6px;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 5px 10px;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid var(--gold);
+  border-radius: 9px;
+  background: rgba(14, 27, 26, 0.97);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.mission-tracker small,
+.mission-tracker .bar2 {
+  grid-column: 1 / -1;
+}
+
+.mission-tracker button {
+  font-size: 0.78rem;
+  padding: 4px 7px;
+}
+
+.mission-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mission-track {
+  padding: 4px 9px;
+  font-size: 0.78rem;
+}
+
+.mission-tracked {
+  outline: 2px solid var(--gold);
+  box-shadow: 0 0 14px rgba(217, 181, 91, 0.18);
+}
+
+/* Lista para reclamar: borde jade + fondo tintado + brillo suave. */
+.mission-ready {
+  border-color: var(--jade) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(108, 196, 161, 0.14),
+    rgba(0, 0, 0, 0.18)
+  );
+  box-shadow:
+    0 0 0 1px rgba(108, 196, 161, 0.35),
+    0 0 16px rgba(108, 196, 161, 0.18);
+}
+
+.mission-status {
+  color: #a7bbb2;
+}
+
+/* El reclamo se rellena en jade para que salte a la vista. */
+.mission-claim {
+  margin-left: auto;
+  color: #0b1614;
+  background: var(--jade);
+  border-color: var(--jade);
+  font-weight: 800;
+}
+
+.mission-claim:hover,
+.mission-claim:focus-visible {
+  background: #9df0cc;
+  border-color: #9df0cc;
+}
+
+.mission-group {
+  margin: 8px 0;
+  border: 1px solid rgba(108, 196, 161, 0.24);
+  border-radius: 10px;
+  background: linear-gradient(
+    145deg,
+    rgba(22, 40, 38, 0.96),
+    rgba(11, 22, 21, 0.96)
+  );
+  overflow: hidden;
+}
+
+.mission-group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  color: var(--jade);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mission-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mission-group > summary:before {
+  content: '＋';
+  color: var(--gold);
+  margin-right: 4px;
+}
+
+.mission-group[open] > summary:before {
+  content: '−';
+}
+
+.mission-group > summary small {
+  color: #a7bbb2;
+  font-weight: 500;
+}
+
+.mission-group-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 8px;
+  padding: 0 10px 10px;
+}
+
+.mission-group-list .mq {
+  margin: 0;
+  border-color: rgba(217, 181, 91, 0.2);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.mission-group summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mission-group {
+    transition:
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  .mission-group[open] {
+    border-color: rgba(108, 196, 161, 0.5);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* Reclamadas: pliegue cerrado al final; no ocupan espacio en la lista. */
+.mission-claimed-fold {
+  margin: 10px 0;
+  border: 1px dashed rgba(167, 187, 178, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mission-claimed-fold > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: #a7bbb2;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mission-claimed-fold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mission-claimed-fold > summary:before {
+  content: '✓';
+  color: var(--jade);
+}
+
+.mission-claimed-fold > summary small {
+  margin-left: auto;
+  font-weight: 500;
+}
+
+.mission-claimed-fold-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 10px 10px;
+}
+
+.mission-claimed-fold .opt.mq {
+  margin: 0;
+  padding: 4px 10px;
+  opacity: 0.7;
+  border-style: dashed;
+  cursor: default;
+}
+
+.mission-claimed-fold summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -3px;
+}
+
+/* ---------- Navegación: grupos desplegables (navH de js/05-arte.js) ---------- */
+.tabs .dd {
+  position: relative;
+  display: flex;
+}
+
+.tabs .dd > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabs .dd.on > button {
+  border-bottom-color: var(--gold);
+  color: var(--gold);
+}
+
+.tabs .dd .ca {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.tabs .dd .di {
+  font-size: 0.9rem;
+}
+
+.tabs .dd .dm {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 120;
+  min-width: 180px;
+  max-width: calc(100vw - 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(14, 27, 26, 0.97);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+
+.tabs .dd:last-of-type .dm {
+  left: auto;
+  right: 0;
+}
+
+.tabs .dd .dm button {
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  text-align: left;
+  white-space: nowrap;
+  padding: 6px 10px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tabs .dd .dm button:hover {
+  background: rgba(227, 191, 106, 0.12);
+  border-color: var(--edge);
+}
+
+.tabs .dd .dm button.on {
+  color: var(--gold);
+  border-color: rgba(227, 191, 106, 0.45);
+}
+
+/* Badge «!» de misiones listas (`misReady`, js/05-arte.js:7). */
+.tab,
+.tabs .dd .dm button {
+  position: relative;
+}
+
+.bang {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--cin, #c4483d);
+  color: #fff;
+  font: 800 0.72rem/16px sans-serif;
+  text-align: center;
+  font-style: normal;
+  box-shadow: 0 0 0 2px #0e1b1a;
+  animation: bangp 1.3s ease-in-out infinite;
+}
+
+@keyframes bangp {
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bang {
+    animation: none;
+  }
+}
+
+.tabs button svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  display: inline-block;
+  vertical-align: -3px;
+}
+
+.hzb {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ---------- Puerta de sectas (gate de js/06-contenido.js:74) ---------- */
+.puerta .aviso-muerte {
+  font-weight: 700;
+  color: #e07a7a;
+  font-size: 0.9rem;
+}
+
+.puerta-confirmar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.puerta-confirmar .fig-heroe {
+  flex: none;
+  width: 96px;
+}
+
+.puerta-confirmar .fig-heroe svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.puerta-confirmar h2 {
+  margin: 0 0 4px;
+  color: var(--gold);
+}
+
+.sects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 10px;
+  overflow: visible;
+  margin-top: 10px;
+}
+
+.sc {
+  font: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 190px;
+  text-align: left;
+  padding: 0 0 8px;
+  overflow: hidden;
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sc.on {
+  border-color: var(--jade);
+  box-shadow:
+    0 0 0 1px var(--jade),
+    0 0 18px rgba(108, 196, 161, 0.35);
+}
+
+.sc b,
+.sc small {
+  display: block;
+  padding: 0 8px;
+}
+
+.sc b {
+  margin-top: 6px;
+  color: var(--gold);
+}
+
+.sc small {
+  color: var(--mut);
+  font-size: 0.7rem;
+  margin-top: 2px;
+}
+
+/* Sectas v47 sin carta base: la tarjeta usa la figura de la secta. */
+.sc .arte-secta svg:not(.art) {
+  display: block;
+  width: auto;
+  height: 132px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- Arte de cartas en combate (card() del monolito) ---------- */
+.cartacomate .carta-arte,
+.recompensa-carta .recompensa-arte {
+  display: block;
+}
+
+.cartacomate .carta-arte .art,
+.recompensa-carta .recompensa-arte .art {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 3px 0;
+  border-radius: 3px;
+  border: 1.5px solid #0d0806;
+}
+
+.recompensa-carta .recompensa-arte .art {
+  border-color: rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- Equipo (tab `eqp`) y Trajes (tab `trj`) ---------- */
+
+/* Panel de huecos (`.eqs` de css/06-parches.css:933-1063) */
+.eqs {
+  display: grid;
+  grid-template-columns: 1fr minmax(96px, 150px) 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.eqs .col {
+  display: grid;
+  gap: 8px;
+}
+
+.eqs .mid {
+  text-align: center;
+}
+
+.eqs .mid .fig {
+  display: inline-block;
+  width: 60px;
+  height: 80px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.eqs .mid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.eqs-sl {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  grid-template-areas:
+    'n n'
+    'a b'
+    'a s';
+  gap: 2px 8px;
+  align-items: center;
+  text-align: left;
+  padding: 6px 8px;
+  min-height: 84px;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  background: var(--glass);
+  color: var(--ink);
+  font: inherit;
+  cursor: default;
+}
+
+.eqs-sl.full {
+  cursor: pointer;
+}
+
+.eqs-sl .sln {
+  grid-area: n;
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+
+.eqs-sl .eqa,
+.eqs-sl > svg {
+  grid-area: a;
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+.eqs-sl .eqa svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.eqs-sl b {
+  grid-area: b;
+  font-size: 0.85rem;
+}
+
+.eqs-sl .eqst {
+  grid-area: s;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.eqs-sl .eqst em {
+  font-style: normal;
+  font-size: 0.72rem;
+  padding: 1px 5px;
+  border-radius: 8px;
+  background: #21403b;
+  color: var(--jade);
+}
+
+.eqs-sl.full:hover {
+  background: #21403b;
+  border-color: var(--jade);
+}
+
+.eqs-sl.empty {
+  border: 1px dashed #4b6a63;
+  background: rgba(22, 40, 38, 0.45);
+  color: var(--mut);
+}
+
+.eqs-sl.empty > svg {
+  fill: none;
+  stroke: #4b6a63;
+  stroke-width: 1.4;
+  opacity: 0.8;
+}
+
+.eqs-sl.empty .eqst em {
+  background: none;
+  color: var(--mut);
+  padding: 0;
+}
+
+.eqt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 2px 0 8px;
+}
+
+.eqt span {
+  font-size: 0.85rem;
+  padding: 3px 8px;
+  border: 1px solid var(--edge);
+  border-radius: 3px;
+}
+
+.eqt b {
+  color: var(--jade);
+}
+
+.eq-nota {
+  color: var(--mut);
+  font-size: 0.85rem;
+  margin: 2px 0 8px;
+}
+
+/* Tarjetas de equipo/traje (`.opt.tj` de css/04-versiones.css:310-494) */
+.grid > .opt.tj {
+  height: 100%;
+}
+
+.opt.tj {
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.opt.tj:not(.eqd):not(:disabled) {
+  opacity: 0.88;
+}
+
+.opt.tj .eq-arte {
+  display: block;
+  width: 100%;
+}
+
+.opt.tj .eq-arte .art {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 3px auto 6px;
+}
+
+.opt.tj .eq-arte .fig {
+  display: block;
+  width: 90px;
+  height: 120px;
+  margin: 0 auto 6px;
+}
+
+.opt.tj .art,
+.opt.tj .fig {
+  transition: transform 0.3s ease;
+}
+
+.opt.tj > b,
+.opt.tj > small,
+.opt.tj .gsl,
+.opt.tj .gst,
+.opt.tj .oab {
+  width: 100%;
+}
+
+.opt.tj .gsl {
+  margin: 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+.gst {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.gst em {
+  font-style: normal;
+  font-weight: 700;
+  color: #ffd978;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(217, 181, 91, 0.4);
+  border-radius: 4px;
+  padding: 2px 9px;
+  font-size: 0.85rem;
+}
+
+.eqb {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 20px;
+  border: 1px solid var(--jade);
+  border-radius: 4px;
+  color: var(--jade);
+  font-weight: 700;
+  background: rgba(108, 196, 161, 0.12);
+}
+
+.opt.tj:hover:not(:disabled) .eqb {
+  background: var(--jade);
+  color: #06130f;
+}
+
+.opt.tj.eqd {
+  background: linear-gradient(
+    180deg,
+    rgba(60, 150, 118, 0.5),
+    rgba(10, 26, 28, 0.95)
+  );
+  border: 2px solid var(--jade);
+  box-shadow:
+    0 0 0 1px rgba(123, 224, 184, 0.5),
+    0 0 24px rgba(123, 224, 184, 0.6),
+    inset 0 0 30px rgba(123, 224, 184, 0.12);
+}
+
+.opt.tj.eqd::before {
+  content: '✔ EQUIPADA';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  background: var(--jade);
+  color: #06130f;
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.opt.tj.eqd::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 60%
+  );
+  background-size: 260% 100%;
+  background-position: 160% 0;
+  background-repeat: no-repeat;
+}
+
+@keyframes eqSweep {
+  from {
+    background-position: 160% 0;
+  }
+
+  to {
+    background-position: -60% 0;
+  }
+}
+
+@keyframes eqPulse {
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(123, 224, 184, 0.8),
+      0 0 34px rgba(123, 224, 184, 0.9),
+      inset 0 0 30px rgba(123, 224, 184, 0.2);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .opt.tj.eqd {
+    animation: eqPulse 2.6s ease-in-out infinite;
+  }
+
+  .opt.tj.eqd::after {
+    animation: eqSweep 3.4s ease-in-out infinite;
+  }
+}
+
+@media (hover: hover) {
+  .opt.tj:not(.eqd):not(:disabled):hover .art,
+  .opt.tj:not(.eqd):not(:disabled):hover .fig {
+    transform: scale(1.05);
+  }
+}
+
+/* Efecto de traje (`.oab` de css/04-versiones.css:724) */
+.oab {
+  display: block;
+  color: #cfe0d8;
+  line-height: 1.3;
+  margin: 3px 0;
+}
+
+.oab u {
+  text-decoration: none;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .eqs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eqs .mid {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+
+/* ---------- Jardín Medicinal (pestaña `jar`, módulo nuevo) ---------- */
+
+.jardin-cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.jardin .casilla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-height: 152px;
+  padding: 12px 10px;
+  text-align: center;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+}
+
+.jardin .casilla.vacia {
+  border-style: dashed;
+  color: var(--mut);
+  justify-content: center;
+}
+
+/* Casilla cumplida: el jade marca que ya se puede cosechar. */
+.jardin .casilla.lista {
+  border-color: var(--jade);
+  box-shadow: 0 0 0 1px rgba(123, 224, 184, 0.45);
+}
+
+.jardin .casilla b {
+  line-height: 1.2;
+}
+
+.jardin-glifo {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.jardin-barra {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.jardin-barra i {
+  display: block;
+  height: 100%;
+  background: var(--jade);
+}
+
+.jardin-tiempo {
+  color: var(--mut);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.jardin-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.jardin-formacion,
+.jardin-mejora {
+  margin: 16px 0;
+  padding: 14px 16px;
+  background: var(--glass);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+}
+
+.jardin-formacion h2,
+.jardin-mejora h2 {
+  margin-top: 0;
+}
+
+.jardin-formacion .q,
+.jardin-mejora .q {
+  margin-top: 0;
+}
+
+.jardin-formacion .boton,
+.jardin-mejora .boton {
+  margin-top: 4px;
+}
+
+.jardin .carta-modal .grid {
+  margin-top: 0;
+}
+
+.jardin .carta-modal .fila-modal {
+  margin-top: 14px;
+}
