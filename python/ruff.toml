@@ -1,0 +1,26 @@
+# Configuración de lint para el backend (ruff).
+# Ejecutar: python/.venv/bin/ruff check app/ tests/
+
+line-length = 88
+target-version = "py312"
+
+[lint]
+select = [
+    "E",   # errores de estilo (pep8)
+    "F",   # pyflakes (imports sin usar, nombres indefinidos)
+    "I",   # orden de imports
+    "UP",  # upgrades modernos de Python
+    "B",   # bugs comunes (bugbear)
+    "SIM", # simplificaciones
+    "RUF", # reglas propias de ruff
+]
+ignore = [
+    "ISC004",  # concatenación implícita de strings largos en tuplas (legibilidad)
+    "RUF001",  # × en logs de combate = paridad con el monolito
+    "RUF002",  # guiones largos en prosa española (–) son legítimos
+    "RUF003",  # ídem
+]
+
+[lint.per-file-ignores]
+# Los tests usan imports "sin usar" para documentar la superficie exportada.
+"tests/**" = ["F401"]

@@ -1,0 +1,3161 @@
+{
+ "total_enemigos": 90,
+ "enemigos": [
+  {
+   "e": "Aldeano Furioso",
+   "s": "esp",
+   "rl": [],
+   "i": "¡Esa espada es de la aldea!",
+   "x": "Perdón... solo quería protegerla.",
+   "n": "Nivel 1. La aldea mortal",
+   "li": 0,
+   "d": 0,
+   "hp": 8,
+   "cap": 5,
+   "rw": 0,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Bandido de Montaña",
+   "s": "esp",
+   "rl": [],
+   "i": "¡Entrega esa espada, chiquillo, o te la arranco!",
+   "x": "¡Maldita sea! Ese chico es un monstruo.",
+   "n": "Nivel 1. La aldea mortal",
+   "li": 0,
+   "d": 1,
+   "hp": 11,
+   "cap": 6,
+   "rw": 1,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Cazador de Recompensas",
+   "s": "bam",
+   "rl": [],
+   "i": "Hay precio por la cabeza de quien carga esa espada.",
+   "x": "Cobra tú la recompensa, entonces.",
+   "n": "Nivel 1. La aldea mortal",
+   "li": 0,
+   "d": 2,
+   "hp": 14,
+   "cap": 7,
+   "rw": 2,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Discípulo Rival",
+   "s": "esp",
+   "rl": [
+    "heal"
+   ],
+   "i": "Un leñador con espada celestial... esa gloria debía ser mía.",
+   "x": "Entonces el Cielo te eligió a ti.",
+   "n": "Nivel 1. La aldea mortal",
+   "li": 0,
+   "d": 3,
+   "hp": 18,
+   "cap": 8,
+   "rw": 2,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Capitán de los Bandidos",
+   "s": "mon",
+   "rl": [
+    "blade"
+   ],
+   "i": "Mis hombres no fallan, muchacho.",
+   "x": "Retirada... ¡retirada!",
+   "n": "Nivel 1. La aldea mortal",
+   "li": 0,
+   "d": 4,
+   "hp": 22,
+   "cap": 9,
+   "rw": 3,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Hermano Mayor Rebelde",
+   "s": "esp",
+   "rl": [
+    "blade",
+    "heal"
+   ],
+   "i": "Bai Heng me negó el Dao. Yo tomaré lo que me deba.",
+   "x": "Maestro, tenía razón. Perdóname.",
+   "n": "Nivel 1. La aldea mortal",
+   "li": 0,
+   "d": 5,
+   "hp": 27,
+   "cap": 10,
+   "rw": 3,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Novicia del Loto",
+   "s": "pil",
+   "rl": [],
+   "i": "Solo soy una novicia, pero no me rendiré.",
+   "x": "Qué fuerte eres. Pasa.",
+   "n": "Nivel 2. La prueba de la secta",
+   "li": 1,
+   "d": 0,
+   "hp": 10,
+   "cap": 5,
+   "rw": 0,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Aprendiz del Loto",
+   "s": "lot",
+   "rl": [],
+   "i": "Si quieres entrar a la secta, primero pasa por mí.",
+   "x": "Tu loto florece. Pasa.",
+   "n": "Nivel 2. La prueba de la secta",
+   "li": 1,
+   "d": 1,
+   "hp": 14,
+   "cap": 6,
+   "rw": 1,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Jardinera Espiritual",
+   "s": "pil",
+   "rl": [
+    "heal"
+   ],
+   "i": "Mis flores sanan lo que tu espada corta.",
+   "x": "Marchitas incluso mis flores.",
+   "n": "Nivel 2. La prueba de la secta",
+   "li": 1,
+   "d": 2,
+   "hp": 18,
+   "cap": 7,
+   "rw": 2,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Discípula del Loto Caído",
+   "s": "lot",
+   "rl": [
+    "heal"
+   ],
+   "i": "El loto sangra cuando se le arranca de su estanque, mortal.",
+   "x": "Tu Qi es limpio. Bai Heng eligió bien.",
+   "n": "Nivel 2. La prueba de la secta",
+   "li": 1,
+   "d": 3,
+   "hp": 22,
+   "cap": 8,
+   "rw": 2,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Maestra de Pétalos",
+   "s": "bam",
+   "rl": [
+    "regen"
+   ],
+   "i": "Cada pétalo es una armadura.",
+   "x": "Mis pétalos... caen.",
+   "n": "Nivel 2. La prueba de la secta",
+   "li": 1,
+   "d": 4,
+   "hp": 27,
+   "cap": 9,
+   "rw": 3,
+   "r": "Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Anciana de la Prueba",
+   "s": "mon",
+   "rl": [
+    "regen",
+    "heal"
+   ],
+   "i": "Mil aspirantes cayeron aquí. Veamos si tú floreces.",
+   "x": "Has superado la prueba. La secta te acoge.",
+   "n": "Nivel 2. La prueba de la secta",
+   "li": 1,
+   "d": 5,
+   "hp": 34,
+   "cap": 10,
+   "rw": 3,
+   "r": "Gana 4 de escudo cada turno. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Cultista Menor",
+   "s": "val",
+   "rl": [],
+   "i": "Un mortal en nuestro valle... ¡qué festín!",
+   "x": "No... aún no debía morir.",
+   "n": "Nivel 3. El valle demoníaco",
+   "li": 2,
+   "d": 0,
+   "hp": 13,
+   "cap": 5,
+   "rw": 0,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Cultivador Demoníaco",
+   "s": "val",
+   "rl": [],
+   "i": "El Anciano pagará bien por tu espada y tu cabeza.",
+   "x": "El Anciano no me perdonará.",
+   "n": "Nivel 3. El valle demoníaco",
+   "li": 2,
+   "d": 1,
+   "hp": 18,
+   "cap": 6,
+   "rw": 1,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Hechicero de Sangre",
+   "s": "val",
+   "rl": [
+    "drain"
+   ],
+   "i": "Tu Qi será mi alimento.",
+   "x": "Mi sangre... se seca.",
+   "n": "Nivel 3. El valle demoníaco",
+   "li": 2,
+   "d": 2,
+   "hp": 23,
+   "cap": 7,
+   "rw": 2,
+   "r": "Cada 3 turnos tu Qi máximo baja 1."
+  },
+  {
+   "e": "Maestro de Talismanes",
+   "s": "tal",
+   "rl": [
+    "seal"
+   ],
+   "i": "Cada sello que escribo es una jaula. Prueba la mía.",
+   "x": "Mis sellos, rotos como papel.",
+   "n": "Nivel 3. El valle demoníaco",
+   "li": 2,
+   "d": 3,
+   "hp": 28,
+   "cap": 8,
+   "rw": 2,
+   "r": "Cada 3 turnos pierdes 2 Qi el turno siguiente."
+  },
+  {
+   "e": "Verdugo del Valle",
+   "s": "val",
+   "rl": [
+    "drain",
+    "blade"
+   ],
+   "i": "El Anciano pidió tu cabeza intacta. No prometo nada.",
+   "x": "El valle me consume.",
+   "n": "Nivel 3. El valle demoníaco",
+   "li": 2,
+   "d": 4,
+   "hp": 34,
+   "cap": 9,
+   "rw": 3,
+   "r": "Cada 3 turnos tu Qi máximo baja 1. Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Anciano Demoníaco",
+   "s": "val",
+   "rl": [
+    "drain",
+    "heal"
+   ],
+   "i": "Esa espada ya sabe a sangre. Dámela y dejaré tu alma intacta.",
+   "x": "La espada aún no me pertenecía. Aún.",
+   "n": "Nivel 3. El valle demoníaco",
+   "li": 2,
+   "d": 5,
+   "hp": 43,
+   "cap": 10,
+   "rw": 3,
+   "r": "Cada 3 turnos tu Qi máximo baja 1. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Sombra Menor",
+   "s": "lun",
+   "rl": [],
+   "i": "Solo soy un eco del miedo.",
+   "x": "El eco se apaga.",
+   "n": "Nivel 4. El palacio de las sombras",
+   "li": 3,
+   "d": 0,
+   "hp": 15,
+   "cap": 5,
+   "rw": 1,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Espectro Lunar",
+   "s": "lun",
+   "rl": [],
+   "i": "Las sombras cuentan secretos a quien se atreve a escucharlas.",
+   "x": "Vuelvo a las sombras.",
+   "n": "Nivel 4. El palacio de las sombras",
+   "li": 3,
+   "d": 1,
+   "hp": 21,
+   "cap": 6,
+   "rw": 2,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Doncella Espejo",
+   "s": "lun",
+   "rl": [
+    "mist"
+   ],
+   "i": "Mira mi espejo: verás lo que temes.",
+   "x": "Mi espejo se quiebra.",
+   "n": "Nivel 4. El palacio de las sombras",
+   "li": 3,
+   "d": 2,
+   "hp": 27,
+   "cap": 7,
+   "rw": 3,
+   "r": "Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Zorro de Mil Colas",
+   "s": "lun",
+   "rl": [
+    "mist"
+   ],
+   "i": "Cada cola esconde un engaño. ¿Cuál es tu verdad, joven?",
+   "x": "Un buen engaño exige un buen ojo. Lo tienes.",
+   "n": "Nivel 4. El palacio de las sombras",
+   "li": 3,
+   "d": 3,
+   "hp": 33,
+   "cap": 8,
+   "rw": 3,
+   "r": "Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Guardiana de las Sombras",
+   "s": "lun",
+   "rl": [
+    "mist",
+    "seal"
+   ],
+   "i": "Las sombras no se dejan atrapar.",
+   "x": "La luz me atraviesa...",
+   "n": "Nivel 4. El palacio de las sombras",
+   "li": 3,
+   "d": 4,
+   "hp": 41,
+   "cap": 9,
+   "rw": 4,
+   "r": "Cada 3 turnos devora una carta de tu mano. Cada 3 turnos pierdes 2 Qi el turno siguiente."
+  },
+  {
+   "e": "Emperatriz de los Mil Fantasmas",
+   "s": "lun",
+   "rl": [
+    "mist",
+    "blade"
+   ],
+   "i": "Mil almas susurran tu nombre. Únete a ellas.",
+   "x": "Mil almas te observarán desde ahora.",
+   "n": "Nivel 4. El palacio de las sombras",
+   "li": 3,
+   "d": 5,
+   "hp": 51,
+   "cap": 10,
+   "rw": 4,
+   "r": "Cada 3 turnos devora una carta de tu mano. Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Lagarto Espiritual",
+   "s": "dra",
+   "rl": [],
+   "i": "Solo soy un lagarto, pero muerdo.",
+   "x": "Sss... huyo.",
+   "n": "Nivel 5. La tribulación celestial",
+   "li": 4,
+   "d": 0,
+   "hp": 17,
+   "cap": 5,
+   "rw": 1,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Cría de Dragón Celestial",
+   "s": "dra",
+   "rl": [],
+   "i": "¡Rugiré hasta que el cielo te rechace!",
+   "x": "¡Creceré y volveré más fuerte!",
+   "n": "Nivel 5. La tribulación celestial",
+   "li": 4,
+   "d": 1,
+   "hp": 24,
+   "cap": 6,
+   "rw": 2,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Serpiente del Trueno",
+   "s": "tru",
+   "rl": [
+    "blade"
+   ],
+   "i": "El trueno me acompaña, mortal.",
+   "x": "Mi rayo se apaga.",
+   "n": "Nivel 5. La tribulación celestial",
+   "li": 4,
+   "d": 2,
+   "hp": 31,
+   "cap": 7,
+   "rw": 3,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Rey Dragón",
+   "s": "dra",
+   "rl": [
+    "breath"
+   ],
+   "i": "Pocos sobreviven a mi aliento. Menos aún al rayo que lo sigue.",
+   "x": "El rayo ya te reconoce, cultivador.",
+   "n": "Nivel 5. La tribulación celestial",
+   "li": 4,
+   "d": 3,
+   "hp": 37,
+   "cap": 8,
+   "rw": 3,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Dragón Anciano",
+   "s": "dra",
+   "rl": [
+    "breath",
+    "heal"
+   ],
+   "i": "Un milenio durmiendo, y vienes a despertarme.",
+   "x": "Vuelvo a dormir. Soñaré contigo.",
+   "n": "Nivel 5. La tribulación celestial",
+   "li": 4,
+   "d": 4,
+   "hp": 46,
+   "cap": 9,
+   "rw": 4,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Inmortal Caído",
+   "s": "val",
+   "rl": [
+    "heal",
+    "blade",
+    "regen"
+   ],
+   "i": "Yo también fui discípulo de Bai Heng. Mira en lo que me convirtió el Cielo.",
+   "x": "Si ves a Bai Heng, dile que no lo odio.",
+   "n": "Nivel 5. La tribulación celestial",
+   "li": 4,
+   "d": 5,
+   "hp": 58,
+   "cap": 10,
+   "rw": 4,
+   "r": "Cura 2 al inicio de su turno. Cada 2 turnos te hace 3 de daño directo. Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Pez Celeste",
+   "s": "bam",
+   "rl": [],
+   "i": "¡Glub! Las nubes son mi hogar.",
+   "x": "Glub... me voy nadando.",
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "li": 5,
+   "d": 0,
+   "hp": 19,
+   "cap": 5,
+   "rw": 2,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Garza de las Nubes",
+   "s": "lot",
+   "rl": [],
+   "i": "El Mar de Nubes no admite pasos pesados.",
+   "x": "Las nubes te dejan pasar.",
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "li": 5,
+   "d": 1,
+   "hp": 27,
+   "cap": 6,
+   "rw": 3,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Hada del Viento",
+   "s": "tru",
+   "rl": [
+    "mist"
+   ],
+   "i": "El viento te lleva donde yo quiera.",
+   "x": "El viento cambia. Adiós.",
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "li": 5,
+   "d": 2,
+   "hp": 34,
+   "cap": 7,
+   "rw": 4,
+   "r": "Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Guardián del Puente Celestial",
+   "s": "tal",
+   "rl": [
+    "seal",
+    "heal"
+   ],
+   "i": "Nadie cruza sin pagar el peaje de su Qi.",
+   "x": "Puedes cruzar. El peaje está pagado.",
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "li": 5,
+   "d": 3,
+   "hp": 42,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cada 3 turnos pierdes 2 Qi el turno siguiente. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Inmortal Errante",
+   "s": "pil",
+   "rl": [
+    "mist",
+    "heal"
+   ],
+   "i": "He cruzado este mar mil veces. ¿Y tú?",
+   "x": "Qué lástima, era un buen camino.",
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "li": 5,
+   "d": 4,
+   "hp": 51,
+   "cap": 9,
+   "rw": 5,
+   "r": "Cada 3 turnos devora una carta de tu mano. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Sabio del Mar de Nubes",
+   "s": "lun",
+   "rl": [
+    "mist",
+    "regen",
+    "seal"
+   ],
+   "i": "He visto caer a mil inmortales. Ninguno miró atrás.",
+   "x": "Interesante. Hacía siglos que nadie miraba atrás.",
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "li": 5,
+   "d": 5,
+   "hp": 65,
+   "cap": 10,
+   "rw": 5,
+   "r": "Cada 3 turnos devora una carta de tu mano. Gana 4 de escudo cada turno. Cada 3 turnos pierdes 2 Qi el turno siguiente."
+  },
+  {
+   "e": "Espada Oxidada",
+   "s": "esp",
+   "rl": [],
+   "i": "Oxidada, sí, pero aún corto.",
+   "x": "Me rompo. Descansa.",
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "li": 6,
+   "d": 0,
+   "hp": 21,
+   "cap": 5,
+   "rw": 2,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Espada Errante",
+   "s": "esp",
+   "rl": [],
+   "i": "Una hoja sin dueño busca un filo digno.",
+   "x": "Ahora conozco a mi dueño.",
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "li": 6,
+   "d": 1,
+   "hp": 29,
+   "cap": 6,
+   "rw": 3,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Aprendiz del Filo",
+   "s": "tru",
+   "rl": [
+    "blade"
+   ],
+   "i": "Aprendí del mejor: de mí mismo.",
+   "x": "Debo entrenar más.",
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "li": 6,
+   "d": 2,
+   "hp": 38,
+   "cap": 7,
+   "rw": 4,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Maestro del Filo Eterno",
+   "s": "esp",
+   "rl": [
+    "blade",
+    "heal"
+   ],
+   "i": "Cien años afilé esta hoja esperándote.",
+   "x": "Cien años valieron este combate.",
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "li": 6,
+   "d": 3,
+   "hp": 46,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Espadachín del Abismo",
+   "s": "esp",
+   "rl": [
+    "blade",
+    "regen"
+   ],
+   "i": "El abismo me dio esta hoja. Toma su filo.",
+   "x": "El abismo me reclama.",
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "li": 6,
+   "d": 4,
+   "hp": 57,
+   "cap": 9,
+   "rw": 5,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Rey de las Mil Espadas",
+   "s": "esp",
+   "rl": [
+    "blade",
+    "regen",
+    "heal"
+   ],
+   "i": "Tu espada es mi fragmento perdido. Devuélvemela.",
+   "x": "El fragmento y la espada vuelven a ser uno.",
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "li": 6,
+   "d": 5,
+   "hp": 71,
+   "cap": 10,
+   "rw": 5,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Gana 4 de escudo cada turno. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Sirviente Celestial",
+   "s": "mon",
+   "rl": [],
+   "i": "El trono exige limpieza. Tú estás sucio.",
+   "x": "Perdón, mi señor...",
+   "n": "Nivel 8. El trono celestial",
+   "li": 7,
+   "d": 0,
+   "hp": 22,
+   "cap": 5,
+   "rw": 3,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Guardia Celestial",
+   "s": "dra",
+   "rl": [],
+   "i": "El trono no recibe visitas sin invitación.",
+   "x": "El trono es tuyo, si te atreves.",
+   "n": "Nivel 8. El trono celestial",
+   "li": 7,
+   "d": 1,
+   "hp": 31,
+   "cap": 6,
+   "rw": 4,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Capitán de la Guardia",
+   "s": "mon",
+   "rl": [
+    "regen"
+   ],
+   "i": "Ningún mortal pasa mi lanza.",
+   "x": "Mi lanza se quiebra.",
+   "n": "Nivel 8. El trono celestial",
+   "li": 7,
+   "d": 2,
+   "hp": 40,
+   "cap": 7,
+   "rw": 5,
+   "r": "Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Emperatriz Celestial",
+   "s": "lun",
+   "rl": [
+    "breath",
+    "mist"
+   ],
+   "i": "Has llegado lejos, mortal. Demasiado lejos.",
+   "x": "El Cielo tiembla, pero aún queda el origen.",
+   "n": "Nivel 8. El trono celestial",
+   "li": 7,
+   "d": 3,
+   "hp": 48,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4. Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "General de las Nueve Nubes",
+   "s": "tru",
+   "rl": [
+    "breath",
+    "blade",
+    "heal"
+   ],
+   "i": "Nueve nubes, nueve rayos. ¿Cuántos resistirás?",
+   "x": "Ni los nueve rayos bastaron.",
+   "n": "Nivel 8. El trono celestial",
+   "li": 7,
+   "d": 4,
+   "hp": 59,
+   "cap": 9,
+   "rw": 5,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4. Cada 2 turnos te hace 3 de daño directo. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Dao Primordial",
+   "s": "val",
+   "rl": [
+    "heal",
+    "blade",
+    "regen",
+    "breath"
+   ],
+   "i": "Soy el origen de todo Qi. Soy lo que buscas y lo que te destruirá.",
+   "x": "Eres el Dao. Ahora comprendo.",
+   "n": "Nivel 8. El trono celestial",
+   "li": 7,
+   "d": 5,
+   "hp": 75,
+   "cap": 10,
+   "rw": 5,
+   "r": "Cura 2 al inicio de su turno. Cada 2 turnos te hace 3 de daño directo. Gana 4 de escudo cada turno. Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Murciélago de Hongo",
+   "s": "bam",
+   "rl": [
+    "heal"
+   ],
+   "i": "Chirrrr... el murciélago te observa con ojos brillantes.",
+   "x": "Chirr... se esconde entre los hongos.",
+   "rcp": "cla",
+   "n": "Cueva del Alquimista Olvidado",
+   "story": "Tras la prueba de la secta, Bai Heng habla de una cueva donde un alquimista desapareció dejando sus recetas. Lin Yu la encuentra sellada por hongos y vapor.",
+   "li": 1,
+   "d": 3,
+   "dg": 1,
+   "hp": 22,
+   "cap": 7,
+   "rw": 2,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Gólem de Caldero",
+   "s": "mon",
+   "rl": [
+    "regen"
+   ],
+   "i": "Hierro y vapor: nadie toca mis calderos.",
+   "x": "El vapor se disipa y deja una nota antigua.",
+   "rcp": "esc",
+   "n": "Cueva del Alquimista Olvidado",
+   "story": "Tras la prueba de la secta, Bai Heng habla de una cueva donde un alquimista desapareció dejando sus recetas. Lin Yu la encuentra sellada por hongos y vapor.",
+   "li": 1,
+   "d": 4,
+   "dg": 1,
+   "hp": 27,
+   "cap": 8,
+   "rw": 3,
+   "r": "Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Espíritu del Alquimista",
+   "s": "pil",
+   "rl": [
+    "heal",
+    "seal"
+   ],
+   "i": "Cien años esperé a alguien digno de mis notas.",
+   "x": "Mis notas son tuyas. Haz buen uso de ellas.",
+   "rcp": "reg",
+   "n": "Cueva del Alquimista Olvidado",
+   "story": "Tras la prueba de la secta, Bai Heng habla de una cueva donde un alquimista desapareció dejando sus recetas. Lin Yu la encuentra sellada por hongos y vapor.",
+   "li": 1,
+   "d": 5,
+   "dg": 1,
+   "hp": 34,
+   "cap": 9,
+   "rw": 3,
+   "r": "Cura 2 al inicio de su turno. Cada 3 turnos pierdes 2 Qi el turno siguiente."
+  },
+  {
+   "e": "Planta Carnívora",
+   "s": "bam",
+   "rl": [],
+   "i": "¡Ñam! Tú hueles a Qi fresco.",
+   "x": "Mi savia... era para ti.",
+   "rcp": "dra",
+   "n": "Gruta de las Mil Hierbas",
+   "story": "Un rumor habla de una gruta donde cada hierba guarda un secreto. Allí, las raíces se mueven como si respiraran.",
+   "li": 3,
+   "d": 3,
+   "dg": 2,
+   "hp": 33,
+   "cap": 7,
+   "rw": 3,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Hada Venenosa",
+   "s": "lun",
+   "rl": [
+    "mist"
+   ],
+   "i": "Mis polvos curan... o matan. Tú elige.",
+   "x": "Qué cruel eres. Toma la receta.",
+   "rcp": "dsp",
+   "n": "Gruta de las Mil Hierbas",
+   "story": "Un rumor habla de una gruta donde cada hierba guarda un secreto. Allí, las raíces se mueven como si respiraran.",
+   "li": 3,
+   "d": 4,
+   "dg": 2,
+   "hp": 41,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Rey de los Hongos",
+   "s": "bam",
+   "rl": [
+    "regen",
+    "heal"
+   ],
+   "i": "Todo lo que crece aquí me pertenece.",
+   "x": "El bosque de hongos se inclina ante ti.",
+   "rcp": "fur",
+   "n": "Gruta de las Mil Hierbas",
+   "story": "Un rumor habla de una gruta donde cada hierba guarda un secreto. Allí, las raíces se mueven como si respiraran.",
+   "li": 3,
+   "d": 5,
+   "dg": 2,
+   "hp": 51,
+   "cap": 9,
+   "rw": 4,
+   "r": "Gana 4 de escudo cada turno. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Demonio del Vapor",
+   "s": "val",
+   "rl": [
+    "drain"
+   ],
+   "i": "Mi vapor sofoca a los mortales.",
+   "x": "El vapor se disipa. Solo queda una receta.",
+   "rcp": "ven",
+   "n": "Caldero del Abismo",
+   "story": "En el abismo hierve un caldero eterno. Se dice que quien lo vence se lleva las recetas prohibidas de mil alquimistas.",
+   "li": 5,
+   "d": 3,
+   "dg": 3,
+   "hp": 42,
+   "cap": 7,
+   "rw": 4,
+   "r": "Cada 3 turnos tu Qi máximo baja 1."
+  },
+  {
+   "e": "Alquimista Corrupto",
+   "s": "tal",
+   "rl": [
+    "seal",
+    "blade"
+   ],
+   "i": "Vendí mi alma por una fórmula. ¿Qué vendes tú?",
+   "x": "Mi fórmula... al menos no morirá conmigo.",
+   "rcp": "qi2",
+   "n": "Caldero del Abismo",
+   "story": "En el abismo hierve un caldero eterno. Se dice que quien lo vence se lleva las recetas prohibidas de mil alquimistas.",
+   "li": 5,
+   "d": 4,
+   "dg": 3,
+   "hp": 51,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cada 3 turnos pierdes 2 Qi el turno siguiente. Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Gran Caldero Viviente",
+   "s": "pil",
+   "rl": [
+    "regen",
+    "heal",
+    "blade"
+   ],
+   "i": "¡BLUB! El caldero despierta.",
+   "x": "El caldero se enfría y deja caer un pergamino.",
+   "rcp": "dr2",
+   "n": "Caldero del Abismo",
+   "story": "En el abismo hierve un caldero eterno. Se dice que quien lo vence se lleva las recetas prohibidas de mil alquimistas.",
+   "li": 5,
+   "d": 5,
+   "dg": 3,
+   "hp": 65,
+   "cap": 9,
+   "rw": 5,
+   "r": "Gana 4 de escudo cada turno. Cura 2 al inicio de su turno. Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Guardián de Jade",
+   "s": "mon",
+   "rl": [
+    "regen"
+   ],
+   "i": "Nadie roba las fórmulas del santuario.",
+   "x": "Las puertas ceden. Pasa, cultivador.",
+   "rcp": "tor",
+   "n": "Santuario de la Inmortalidad",
+   "story": "Más allá del Mar de Nubes se alza un santuario cuyas puertas solo se abren a quien domina el fuego y la medicina. Allí nació la primera píldora de inmortalidad.",
+   "li": 7,
+   "d": 3,
+   "dg": 4,
+   "hp": 48,
+   "cap": 7,
+   "rw": 5,
+   "r": "Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Sabio del Elixir Eterno",
+   "s": "pil",
+   "rl": [
+    "heal",
+    "mist"
+   ],
+   "i": "He bebido mil elixires y aún espero a un aprendiz.",
+   "x": "Un aprendiz digno, al fin.",
+   "rcp": "rar",
+   "n": "Santuario de la Inmortalidad",
+   "story": "Más allá del Mar de Nubes se alza un santuario cuyas puertas solo se abren a quien domina el fuego y la medicina. Allí nació la primera píldora de inmortalidad.",
+   "li": 7,
+   "d": 4,
+   "dg": 4,
+   "hp": 59,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cura 2 al inicio de su turno. Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Inmortal Alquimista Primigenio",
+   "s": "tru",
+   "rl": [
+    "blade",
+    "regen",
+    "heal",
+    "breath"
+   ],
+   "i": "Yo inventé la inmortalidad. ¿Quién te dio permiso para buscarla?",
+   "x": "Así que la inmortalidad es tuya. Úsala bien.",
+   "rcp": "inm",
+   "n": "Santuario de la Inmortalidad",
+   "story": "Más allá del Mar de Nubes se alza un santuario cuyas puertas solo se abren a quien domina el fuego y la medicina. Allí nació la primera píldora de inmortalidad.",
+   "li": 7,
+   "d": 5,
+   "dg": 4,
+   "hp": 75,
+   "cap": 9,
+   "rw": 5,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Gana 4 de escudo cada turno. Cura 2 al inicio de su turno. Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Abeja Dorada",
+   "s": "bam",
+   "rl": [],
+   "i": "Bzzz... mi miel no es para mortales.",
+   "x": "Bzz... toma una receta y vete.",
+   "rcp": "cur",
+   "n": "Jardín de las Píldoras Celestiales",
+   "story": "Entre las nubes flota un jardín donde las píldoras crecen en los árboles. Sus guardianes no regalan ni una hoja.",
+   "li": 2,
+   "d": 3,
+   "dg": 5,
+   "hp": 28,
+   "cap": 7,
+   "rw": 2,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Sacerdotisa del Jardín",
+   "s": "lot",
+   "rl": [
+    "heal"
+   ],
+   "i": "Cada fruto de este jardín lo cuidé yo.",
+   "x": "Cuídalo como yo lo hice.",
+   "rcp": "qiR",
+   "n": "Jardín de las Píldoras Celestiales",
+   "story": "Entre las nubes flota un jardín donde las píldoras crecen en los árboles. Sus guardianes no regalan ni una hoja.",
+   "li": 2,
+   "d": 4,
+   "dg": 5,
+   "hp": 34,
+   "cap": 8,
+   "rw": 3,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Árbol Anciano de las Píldoras",
+   "s": "bam",
+   "rl": [
+    "regen",
+    "heal"
+   ],
+   "i": "Mil años dando frutos, ¿y tú quieres mis hojas?",
+   "x": "Mis hojas son tuyas. Planta una semilla.",
+   "rcp": "pet",
+   "n": "Jardín de las Píldoras Celestiales",
+   "story": "Entre las nubes flota un jardín donde las píldoras crecen en los árboles. Sus guardianes no regalan ni una hoja.",
+   "li": 2,
+   "d": 5,
+   "dg": 5,
+   "hp": 43,
+   "cap": 9,
+   "rw": 3,
+   "r": "Gana 4 de escudo cada turno. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Salamandra Ígnea",
+   "s": "dra",
+   "rl": [
+    "blade"
+   ],
+   "i": "¡Siente cómo arde mi fuego interior!",
+   "x": "El fuego se apaga. Aprende de él.",
+   "rcp": "fue",
+   "n": "Cámara del Fuego Interior",
+   "story": "En lo profundo de la montaña arde un fuego que no consume. Dicen que quien lo domina puede encender su propio Qi en pleno combate.",
+   "li": 4,
+   "d": 3,
+   "dg": 6,
+   "hp": 37,
+   "cap": 7,
+   "rw": 3,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Maestro del Horno Sagrado",
+   "s": "pil",
+   "rl": [
+    "heal",
+    "regen"
+   ],
+   "i": "El horno exige paciencia, no prisa.",
+   "x": "Paciencia: eso fue lo que aprendiste.",
+   "rcp": "rob",
+   "n": "Cámara del Fuego Interior",
+   "story": "En lo profundo de la montaña arde un fuego que no consume. Dicen que quien lo domina puede encender su propio Qi en pleno combate.",
+   "li": 4,
+   "d": 4,
+   "dg": 6,
+   "hp": 46,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cura 2 al inicio de su turno. Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Fénix Alquimista",
+   "s": "dra",
+   "rl": [
+    "breath",
+    "heal"
+   ],
+   "i": "Renazco cada vez que ardo.",
+   "x": "Renaces tú también, cultivador.",
+   "rcp": "cng",
+   "n": "Cámara del Fuego Interior",
+   "story": "En lo profundo de la montaña arde un fuego que no consume. Dicen que quien lo domina puede encender su propio Qi en pleno combate.",
+   "li": 4,
+   "d": 5,
+   "dg": 6,
+   "hp": 58,
+   "cap": 9,
+   "rw": 4,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Ladrón de Caminos",
+   "s": "esp",
+   "rl": [],
+   "i": "¡Suelta esa bolsa, chiquillo!",
+   "x": "Mi cuchillo... se me cae.",
+   "n": "El cargamento perdido",
+   "story": "Un mercader herido espera al borde del camino. Dice que los bandidos escondieron su carga en un barranco cercano.",
+   "li": 0,
+   "d": 2,
+   "sq": 1,
+   "sqf": 0,
+   "hp": 14,
+   "cap": 6,
+   "rw": 3,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Mastín de la Banda",
+   "s": "mon",
+   "rl": [],
+   "i": "¡Grrr! (el mastín custodia el botín).",
+   "x": "Aúlla y huye a la montaña.",
+   "n": "El cargamento perdido",
+   "story": "Un mercader herido espera al borde del camino. Dice que los bandidos escondieron su carga en un barranco cercano.",
+   "li": 0,
+   "d": 3,
+   "sq": 1,
+   "sqf": 1,
+   "hp": 18,
+   "cap": 7,
+   "rw": 3,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Líder de la Banda",
+   "s": "esp",
+   "rl": [
+    "blade"
+   ],
+   "i": "Nadie recupera lo que ya es mío.",
+   "x": "Llévate la carga y déjame en paz.",
+   "n": "El cargamento perdido",
+   "story": "Un mercader herido espera al borde del camino. Dice que los bandidos escondieron su carga en un barranco cercano.",
+   "li": 0,
+   "d": 4,
+   "sq": 1,
+   "sqf": 2,
+   "hp": 22,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Discípula Celosa",
+   "s": "lot",
+   "rl": [
+    "heal"
+   ],
+   "i": "Solo yo merezco el favor de la maestra.",
+   "x": "Quizá... me equivoqué contigo.",
+   "n": "Las pruebas ocultas",
+   "story": "Una discípula susurra que existen pruebas que la maestra nunca anuncia. Quien las supera gana su favor.",
+   "li": 1,
+   "d": 2,
+   "sq": 2,
+   "sqf": 0,
+   "hp": 18,
+   "cap": 6,
+   "rw": 3,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Guardiana del Jardín",
+   "s": "lot",
+   "rl": [
+    "regen"
+   ],
+   "i": "Estas flores no se tocan.",
+   "x": "Pasa, pero con cuidado.",
+   "n": "Las pruebas ocultas",
+   "story": "Una discípula susurra que existen pruebas que la maestra nunca anuncia. Quien las supera gana su favor.",
+   "li": 1,
+   "d": 3,
+   "sq": 2,
+   "sqf": 1,
+   "hp": 22,
+   "cap": 7,
+   "rw": 3,
+   "r": "Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Maestra de la Prueba Oculta",
+   "s": "lot",
+   "rl": [
+    "heal",
+    "regen"
+   ],
+   "i": "¿Crees que superaste todo? Falta lo difícil.",
+   "x": "Has superado incluso la prueba oculta.",
+   "n": "Las pruebas ocultas",
+   "story": "Una discípula susurra que existen pruebas que la maestra nunca anuncia. Quien las supera gana su favor.",
+   "li": 1,
+   "d": 4,
+   "sq": 2,
+   "sqf": 2,
+   "hp": 27,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cura 2 al inicio de su turno. Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Mercader de Almas",
+   "s": "val",
+   "rl": [
+    "drain"
+   ],
+   "i": "Compra o muere, muchacho.",
+   "x": "Mis almas... se escapan.",
+   "n": "La caravana demoníaca",
+   "story": "Entre las dunas rojas avanza una caravana que huele a azufre y a monedas. Sus guardianes no aceptan testigos.",
+   "li": 2,
+   "d": 2,
+   "sq": 3,
+   "sqf": 0,
+   "hp": 23,
+   "cap": 6,
+   "rw": 3,
+   "r": "Cada 3 turnos tu Qi máximo baja 1."
+  },
+  {
+   "e": "Escolta Sangrienta",
+   "s": "val",
+   "rl": [
+    "blade"
+   ],
+   "i": "¡Para proteger la caravana, todo vale!",
+   "x": "Cumplí... hasta aquí.",
+   "n": "La caravana demoníaca",
+   "story": "Entre las dunas rojas avanza una caravana que huele a azufre y a monedas. Sus guardianes no aceptan testigos.",
+   "li": 2,
+   "d": 3,
+   "sq": 3,
+   "sqf": 1,
+   "hp": 28,
+   "cap": 7,
+   "rw": 3,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Anciano de la Caravana",
+   "s": "val",
+   "rl": [
+    "blade",
+    "drain"
+   ],
+   "i": "Mil años de comercio, ¿y me detiene un niño?",
+   "x": "Que el Valle te recuerde.",
+   "n": "La caravana demoníaca",
+   "story": "Entre las dunas rojas avanza una caravana que huele a azufre y a monedas. Sus guardianes no aceptan testigos.",
+   "li": 2,
+   "d": 4,
+   "sq": 3,
+   "sqf": 2,
+   "hp": 34,
+   "cap": 8,
+   "rw": 4,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Cada 3 turnos tu Qi máximo baja 1."
+  },
+  {
+   "e": "Sombra Curiosa",
+   "s": "lun",
+   "rl": [
+    "mist"
+   ],
+   "i": "Te veo... aunque tú no me veas.",
+   "x": "Me desvanezco en la bruma.",
+   "n": "Susurros en la sombra",
+   "story": "Cada noche, una voz idéntica a la de Lin Yu recorre los pasillos del palacio. Nadie sabe qué busca.",
+   "li": 3,
+   "d": 2,
+   "sq": 4,
+   "sqf": 0,
+   "hp": 27,
+   "cap": 6,
+   "rw": 4,
+   "r": "Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Reflejo del Palacio",
+   "s": "lun",
+   "rl": [
+    "seal"
+   ],
+   "i": "Soy lo que ocultas.",
+   "x": "El espejo se quiebra.",
+   "n": "Susurros en la sombra",
+   "story": "Cada noche, una voz idéntica a la de Lin Yu recorre los pasillos del palacio. Nadie sabe qué busca.",
+   "li": 3,
+   "d": 3,
+   "sq": 4,
+   "sqf": 1,
+   "hp": 33,
+   "cap": 7,
+   "rw": 4,
+   "r": "Cada 3 turnos pierdes 2 Qi el turno siguiente."
+  },
+  {
+   "e": "Dama de las Mil Sombras",
+   "s": "lun",
+   "rl": [
+    "mist",
+    "seal"
+   ],
+   "i": "Las sombras guardan tus secretos.",
+   "x": "Las sombras... se apagan.",
+   "n": "Susurros en la sombra",
+   "story": "Cada noche, una voz idéntica a la de Lin Yu recorre los pasillos del palacio. Nadie sabe qué busca.",
+   "li": 3,
+   "d": 4,
+   "sq": 4,
+   "sqf": 2,
+   "hp": 41,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cada 3 turnos devora una carta de tu mano. Cada 3 turnos pierdes 2 Qi el turno siguiente."
+  },
+  {
+   "e": "Discípulo del Trueno",
+   "s": "tru",
+   "rl": [],
+   "i": "¡El rayo me eligió a mí!",
+   "x": "El rayo... me abandona.",
+   "n": "Rayos olvidados",
+   "story": "Tras la tribulación, quedan altares con rayos atrapados. Los cultivadores del trueno los custodian con celo.",
+   "li": 4,
+   "d": 2,
+   "sq": 5,
+   "sqf": 0,
+   "hp": 31,
+   "cap": 6,
+   "rw": 4,
+   "r": "Sin habilidades."
+  },
+  {
+   "e": "Monje Fulminado",
+   "s": "tru",
+   "rl": [
+    "regen"
+   ],
+   "i": "Soporté mil tribulaciones.",
+   "x": "Aún me quedan mil más.",
+   "n": "Rayos olvidados",
+   "story": "Tras la tribulación, quedan altares con rayos atrapados. Los cultivadores del trueno los custodian con celo.",
+   "li": 4,
+   "d": 3,
+   "sq": 5,
+   "sqf": 1,
+   "hp": 37,
+   "cap": 7,
+   "rw": 4,
+   "r": "Gana 4 de escudo cada turno."
+  },
+  {
+   "e": "Heraldo de la Tormenta",
+   "s": "tru",
+   "rl": [
+    "breath"
+   ],
+   "i": "La tormenta no pide permiso.",
+   "x": "Que el cielo juzgue.",
+   "n": "Rayos olvidados",
+   "story": "Tras la tribulación, quedan altares con rayos atrapados. Los cultivadores del trueno los custodian con celo.",
+   "li": 4,
+   "d": 4,
+   "sq": 5,
+   "sqf": 2,
+   "hp": 46,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Hada de las Nubes",
+   "s": "lot",
+   "rl": [
+    "heal"
+   ],
+   "i": "Este jardín no es para mortales.",
+   "x": "Las nubes te guiarán.",
+   "n": "El jardín flotante",
+   "story": "Un jardín blanco flota entre las nubes. Dicen que sus raíces cuelgan de las estrellas y que tiene guardianes.",
+   "li": 5,
+   "d": 2,
+   "sq": 6,
+   "sqf": 0,
+   "hp": 34,
+   "cap": 6,
+   "rw": 5,
+   "r": "Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Alquimista Celestial",
+   "s": "pil",
+   "rl": [
+    "regen",
+    "heal"
+   ],
+   "i": "Cada hoja es un siglo de trabajo.",
+   "x": "Tómala, la ganaste.",
+   "n": "El jardín flotante",
+   "story": "Un jardín blanco flota entre las nubes. Dicen que sus raíces cuelgan de las estrellas y que tiene guardianes.",
+   "li": 5,
+   "d": 3,
+   "sq": 6,
+   "sqf": 1,
+   "hp": 42,
+   "cap": 7,
+   "rw": 5,
+   "r": "Gana 4 de escudo cada turno. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Guardián del Jardín Inmortal",
+   "s": "bam",
+   "rl": [
+    "regen",
+    "breath"
+   ],
+   "i": "Las raíces te sujetan.",
+   "x": "Me arranco... y descanso.",
+   "n": "El jardín flotante",
+   "story": "Un jardín blanco flota entre las nubes. Dicen que sus raíces cuelgan de las estrellas y que tiene guardianes.",
+   "li": 5,
+   "d": 4,
+   "sq": 6,
+   "sqf": 2,
+   "hp": 51,
+   "cap": 8,
+   "rw": 5,
+   "r": "Gana 4 de escudo cada turno. Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Espectro Errante",
+   "s": "esp",
+   "rl": [
+    "blade"
+   ],
+   "i": "Mi espada me espera.",
+   "x": "Por fin... descanso.",
+   "n": "El cementerio de espadas",
+   "story": "En el abismo hay un cementerio donde cada espada es una tumba. Sus dueños no han terminado de morir.",
+   "li": 6,
+   "d": 2,
+   "sq": 7,
+   "sqf": 0,
+   "hp": 38,
+   "cap": 6,
+   "rw": 5,
+   "r": "Cada 2 turnos te hace 3 de daño directo."
+  },
+  {
+   "e": "Maestro Caído",
+   "s": "esp",
+   "rl": [
+    "blade",
+    "heal"
+   ],
+   "i": "Mil espadas, ninguna digna.",
+   "x": "Esta sí lo era.",
+   "n": "El cementerio de espadas",
+   "story": "En el abismo hay un cementerio donde cada espada es una tumba. Sus dueños no han terminado de morir.",
+   "li": 6,
+   "d": 3,
+   "sq": 7,
+   "sqf": 1,
+   "hp": 46,
+   "cap": 7,
+   "rw": 5,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Cura 2 al inicio de su turno."
+  },
+  {
+   "e": "Rey de las Mil Espadas",
+   "s": "esp",
+   "rl": [
+    "blade",
+    "breath"
+   ],
+   "i": "Quien me venza heredará mi filo.",
+   "x": "El filo es tuyo, joven.",
+   "n": "El cementerio de espadas",
+   "story": "En el abismo hay un cementerio donde cada espada es una tumba. Sus dueños no han terminado de morir.",
+   "li": 6,
+   "d": 4,
+   "sq": 7,
+   "sqf": 2,
+   "hp": 57,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cada 2 turnos te hace 3 de daño directo. Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Juez del Trueno",
+   "s": "tru",
+   "rl": [
+    "breath"
+   ],
+   "i": "El Cielo mide tus actos.",
+   "x": "Tus actos pesan... a tu favor.",
+   "n": "Los jueces del trono",
+   "story": "Antes del trono, tres jueces del Cielo miden cada acto del aspirante. Ninguno ha sido vencido jamás.",
+   "li": 7,
+   "d": 2,
+   "sq": 8,
+   "sqf": 0,
+   "hp": 40,
+   "cap": 6,
+   "rw": 5,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4."
+  },
+  {
+   "e": "Juez de la Luna",
+   "s": "lun",
+   "rl": [
+    "seal",
+    "mist"
+   ],
+   "i": "El Cielo recuerda tus dudas.",
+   "x": "Dudas que superaste.",
+   "n": "Los jueces del trono",
+   "story": "Antes del trono, tres jueces del Cielo miden cada acto del aspirante. Ninguno ha sido vencido jamás.",
+   "li": 7,
+   "d": 3,
+   "sq": 8,
+   "sqf": 1,
+   "hp": 48,
+   "cap": 7,
+   "rw": 5,
+   "r": "Cada 3 turnos pierdes 2 Qi el turno siguiente. Cada 3 turnos devora una carta de tu mano."
+  },
+  {
+   "e": "Juez Supremo del Trono",
+   "s": "dra",
+   "rl": [
+    "breath",
+    "heal",
+    "blade"
+   ],
+   "i": "Aquí se decide quién asciende.",
+   "x": "Asciende, cultivador.",
+   "n": "Los jueces del trono",
+   "story": "Antes del trono, tres jueces del Cielo miden cada acto del aspirante. Ninguno ha sido vencido jamás.",
+   "li": 7,
+   "d": 4,
+   "sq": 8,
+   "sqf": 2,
+   "hp": 59,
+   "cap": 8,
+   "rw": 5,
+   "r": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4. Cura 2 al inicio de su turno. Cada 2 turnos te hace 3 de daño directo."
+  }
+ ],
+ "niveles": [
+  {
+   "n": "Nivel 1. La aldea mortal",
+   "sky": [
+    "#2b4a63",
+    "#9fc7d8"
+   ],
+   "es": [
+    {
+     "e": "Aldeano Furioso",
+     "s": "esp",
+     "rl": [],
+     "i": "¡Esa espada es de la aldea!",
+     "x": "Perdón... solo quería protegerla."
+    },
+    {
+     "e": "Bandido de Montaña",
+     "s": "esp",
+     "rl": [],
+     "i": "¡Entrega esa espada, chiquillo, o te la arranco!",
+     "x": "¡Maldita sea! Ese chico es un monstruo."
+    },
+    {
+     "e": "Cazador de Recompensas",
+     "s": "bam",
+     "rl": [],
+     "i": "Hay precio por la cabeza de quien carga esa espada.",
+     "x": "Cobra tú la recompensa, entonces."
+    },
+    {
+     "e": "Discípulo Rival",
+     "s": "esp",
+     "rl": [
+      "heal"
+     ],
+     "i": "Un leñador con espada celestial... esa gloria debía ser mía.",
+     "x": "Entonces el Cielo te eligió a ti."
+    },
+    {
+     "e": "Capitán de los Bandidos",
+     "s": "mon",
+     "rl": [
+      "blade"
+     ],
+     "i": "Mis hombres no fallan, muchacho.",
+     "x": "Retirada... ¡retirada!"
+    },
+    {
+     "e": "Hermano Mayor Rebelde",
+     "s": "esp",
+     "rl": [
+      "blade",
+      "heal"
+     ],
+     "i": "Bai Heng me negó el Dao. Yo tomaré lo que me deba.",
+     "x": "Maestro, tenía razón. Perdóname."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 2. La prueba de la secta",
+   "sky": [
+    "#3b5a4a",
+    "#cfe3c8"
+   ],
+   "es": [
+    {
+     "e": "Novicia del Loto",
+     "s": "pil",
+     "rl": [],
+     "i": "Solo soy una novicia, pero no me rendiré.",
+     "x": "Qué fuerte eres. Pasa."
+    },
+    {
+     "e": "Aprendiz del Loto",
+     "s": "lot",
+     "rl": [],
+     "i": "Si quieres entrar a la secta, primero pasa por mí.",
+     "x": "Tu loto florece. Pasa."
+    },
+    {
+     "e": "Jardinera Espiritual",
+     "s": "pil",
+     "rl": [
+      "heal"
+     ],
+     "i": "Mis flores sanan lo que tu espada corta.",
+     "x": "Marchitas incluso mis flores."
+    },
+    {
+     "e": "Discípula del Loto Caído",
+     "s": "lot",
+     "rl": [
+      "heal"
+     ],
+     "i": "El loto sangra cuando se le arranca de su estanque, mortal.",
+     "x": "Tu Qi es limpio. Bai Heng eligió bien."
+    },
+    {
+     "e": "Maestra de Pétalos",
+     "s": "bam",
+     "rl": [
+      "regen"
+     ],
+     "i": "Cada pétalo es una armadura.",
+     "x": "Mis pétalos... caen."
+    },
+    {
+     "e": "Anciana de la Prueba",
+     "s": "mon",
+     "rl": [
+      "regen",
+      "heal"
+     ],
+     "i": "Mil aspirantes cayeron aquí. Veamos si tú floreces.",
+     "x": "Has superado la prueba. La secta te acoge."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 3. El valle demoníaco",
+   "sky": [
+    "#3a1418",
+    "#8a3a30"
+   ],
+   "es": [
+    {
+     "e": "Cultista Menor",
+     "s": "val",
+     "rl": [],
+     "i": "Un mortal en nuestro valle... ¡qué festín!",
+     "x": "No... aún no debía morir."
+    },
+    {
+     "e": "Cultivador Demoníaco",
+     "s": "val",
+     "rl": [],
+     "i": "El Anciano pagará bien por tu espada y tu cabeza.",
+     "x": "El Anciano no me perdonará."
+    },
+    {
+     "e": "Hechicero de Sangre",
+     "s": "val",
+     "rl": [
+      "drain"
+     ],
+     "i": "Tu Qi será mi alimento.",
+     "x": "Mi sangre... se seca."
+    },
+    {
+     "e": "Maestro de Talismanes",
+     "s": "tal",
+     "rl": [
+      "seal"
+     ],
+     "i": "Cada sello que escribo es una jaula. Prueba la mía.",
+     "x": "Mis sellos, rotos como papel."
+    },
+    {
+     "e": "Verdugo del Valle",
+     "s": "val",
+     "rl": [
+      "drain",
+      "blade"
+     ],
+     "i": "El Anciano pidió tu cabeza intacta. No prometo nada.",
+     "x": "El valle me consume."
+    },
+    {
+     "e": "Anciano Demoníaco",
+     "s": "val",
+     "rl": [
+      "drain",
+      "heal"
+     ],
+     "i": "Esa espada ya sabe a sangre. Dámela y dejaré tu alma intacta.",
+     "x": "La espada aún no me pertenecía. Aún."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 4. El palacio de las sombras",
+   "sky": [
+    "#1c1c46",
+    "#6a5aa8"
+   ],
+   "es": [
+    {
+     "e": "Sombra Menor",
+     "s": "lun",
+     "rl": [],
+     "i": "Solo soy un eco del miedo.",
+     "x": "El eco se apaga."
+    },
+    {
+     "e": "Espectro Lunar",
+     "s": "lun",
+     "rl": [],
+     "i": "Las sombras cuentan secretos a quien se atreve a escucharlas.",
+     "x": "Vuelvo a las sombras."
+    },
+    {
+     "e": "Doncella Espejo",
+     "s": "lun",
+     "rl": [
+      "mist"
+     ],
+     "i": "Mira mi espejo: verás lo que temes.",
+     "x": "Mi espejo se quiebra."
+    },
+    {
+     "e": "Zorro de Mil Colas",
+     "s": "lun",
+     "rl": [
+      "mist"
+     ],
+     "i": "Cada cola esconde un engaño. ¿Cuál es tu verdad, joven?",
+     "x": "Un buen engaño exige un buen ojo. Lo tienes."
+    },
+    {
+     "e": "Guardiana de las Sombras",
+     "s": "lun",
+     "rl": [
+      "mist",
+      "seal"
+     ],
+     "i": "Las sombras no se dejan atrapar.",
+     "x": "La luz me atraviesa..."
+    },
+    {
+     "e": "Emperatriz de los Mil Fantasmas",
+     "s": "lun",
+     "rl": [
+      "mist",
+      "blade"
+     ],
+     "i": "Mil almas susurran tu nombre. Únete a ellas.",
+     "x": "Mil almas te observarán desde ahora."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 5. La tribulación celestial",
+   "sky": [
+    "#5a3a0a",
+    "#f0c860"
+   ],
+   "es": [
+    {
+     "e": "Lagarto Espiritual",
+     "s": "dra",
+     "rl": [],
+     "i": "Solo soy un lagarto, pero muerdo.",
+     "x": "Sss... huyo."
+    },
+    {
+     "e": "Cría de Dragón Celestial",
+     "s": "dra",
+     "rl": [],
+     "i": "¡Rugiré hasta que el cielo te rechace!",
+     "x": "¡Creceré y volveré más fuerte!"
+    },
+    {
+     "e": "Serpiente del Trueno",
+     "s": "tru",
+     "rl": [
+      "blade"
+     ],
+     "i": "El trueno me acompaña, mortal.",
+     "x": "Mi rayo se apaga."
+    },
+    {
+     "e": "Rey Dragón",
+     "s": "dra",
+     "rl": [
+      "breath"
+     ],
+     "i": "Pocos sobreviven a mi aliento. Menos aún al rayo que lo sigue.",
+     "x": "El rayo ya te reconoce, cultivador."
+    },
+    {
+     "e": "Dragón Anciano",
+     "s": "dra",
+     "rl": [
+      "breath",
+      "heal"
+     ],
+     "i": "Un milenio durmiendo, y vienes a despertarme.",
+     "x": "Vuelvo a dormir. Soñaré contigo."
+    },
+    {
+     "e": "Inmortal Caído",
+     "s": "val",
+     "rl": [
+      "heal",
+      "blade",
+      "regen"
+     ],
+     "i": "Yo también fui discípulo de Bai Heng. Mira en lo que me convirtió el Cielo.",
+     "x": "Si ves a Bai Heng, dile que no lo odio."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 6. El mar de nubes inmortal",
+   "sky": [
+    "#1e3b5a",
+    "#a8d8f0"
+   ],
+   "es": [
+    {
+     "e": "Pez Celeste",
+     "s": "bam",
+     "rl": [],
+     "i": "¡Glub! Las nubes son mi hogar.",
+     "x": "Glub... me voy nadando."
+    },
+    {
+     "e": "Garza de las Nubes",
+     "s": "lot",
+     "rl": [],
+     "i": "El Mar de Nubes no admite pasos pesados.",
+     "x": "Las nubes te dejan pasar."
+    },
+    {
+     "e": "Hada del Viento",
+     "s": "tru",
+     "rl": [
+      "mist"
+     ],
+     "i": "El viento te lleva donde yo quiera.",
+     "x": "El viento cambia. Adiós."
+    },
+    {
+     "e": "Guardián del Puente Celestial",
+     "s": "tal",
+     "rl": [
+      "seal",
+      "heal"
+     ],
+     "i": "Nadie cruza sin pagar el peaje de su Qi.",
+     "x": "Puedes cruzar. El peaje está pagado."
+    },
+    {
+     "e": "Inmortal Errante",
+     "s": "pil",
+     "rl": [
+      "mist",
+      "heal"
+     ],
+     "i": "He cruzado este mar mil veces. ¿Y tú?",
+     "x": "Qué lástima, era un buen camino."
+    },
+    {
+     "e": "Sabio del Mar de Nubes",
+     "s": "lun",
+     "rl": [
+      "mist",
+      "regen",
+      "seal"
+     ],
+     "i": "He visto caer a mil inmortales. Ninguno miró atrás.",
+     "x": "Interesante. Hacía siglos que nadie miraba atrás."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 7. El abismo de las mil espadas",
+   "sky": [
+    "#2a2a30",
+    "#8a8f9a"
+   ],
+   "es": [
+    {
+     "e": "Espada Oxidada",
+     "s": "esp",
+     "rl": [],
+     "i": "Oxidada, sí, pero aún corto.",
+     "x": "Me rompo. Descansa."
+    },
+    {
+     "e": "Espada Errante",
+     "s": "esp",
+     "rl": [],
+     "i": "Una hoja sin dueño busca un filo digno.",
+     "x": "Ahora conozco a mi dueño."
+    },
+    {
+     "e": "Aprendiz del Filo",
+     "s": "tru",
+     "rl": [
+      "blade"
+     ],
+     "i": "Aprendí del mejor: de mí mismo.",
+     "x": "Debo entrenar más."
+    },
+    {
+     "e": "Maestro del Filo Eterno",
+     "s": "esp",
+     "rl": [
+      "blade",
+      "heal"
+     ],
+     "i": "Cien años afilé esta hoja esperándote.",
+     "x": "Cien años valieron este combate."
+    },
+    {
+     "e": "Espadachín del Abismo",
+     "s": "esp",
+     "rl": [
+      "blade",
+      "regen"
+     ],
+     "i": "El abismo me dio esta hoja. Toma su filo.",
+     "x": "El abismo me reclama."
+    },
+    {
+     "e": "Rey de las Mil Espadas",
+     "s": "esp",
+     "rl": [
+      "blade",
+      "regen",
+      "heal"
+     ],
+     "i": "Tu espada es mi fragmento perdido. Devuélvemela.",
+     "x": "El fragmento y la espada vuelven a ser uno."
+    }
+   ]
+  },
+  {
+   "n": "Nivel 8. El trono celestial",
+   "sky": [
+    "#3a2060",
+    "#f0d890"
+   ],
+   "es": [
+    {
+     "e": "Sirviente Celestial",
+     "s": "mon",
+     "rl": [],
+     "i": "El trono exige limpieza. Tú estás sucio.",
+     "x": "Perdón, mi señor..."
+    },
+    {
+     "e": "Guardia Celestial",
+     "s": "dra",
+     "rl": [],
+     "i": "El trono no recibe visitas sin invitación.",
+     "x": "El trono es tuyo, si te atreves."
+    },
+    {
+     "e": "Capitán de la Guardia",
+     "s": "mon",
+     "rl": [
+      "regen"
+     ],
+     "i": "Ningún mortal pasa mi lanza.",
+     "x": "Mi lanza se quiebra."
+    },
+    {
+     "e": "Emperatriz Celestial",
+     "s": "lun",
+     "rl": [
+      "breath",
+      "mist"
+     ],
+     "i": "Has llegado lejos, mortal. Demasiado lejos.",
+     "x": "El Cielo tiembla, pero aún queda el origen."
+    },
+    {
+     "e": "General de las Nueve Nubes",
+     "s": "tru",
+     "rl": [
+      "breath",
+      "blade",
+      "heal"
+     ],
+     "i": "Nueve nubes, nueve rayos. ¿Cuántos resistirás?",
+     "x": "Ni los nueve rayos bastaron."
+    },
+    {
+     "e": "Dao Primordial",
+     "s": "val",
+     "rl": [
+      "heal",
+      "blade",
+      "regen",
+      "breath"
+     ],
+     "i": "Soy el origen de todo Qi. Soy lo que buscas y lo que te destruirá.",
+     "x": "Eres el Dao. Ahora comprendo."
+    }
+   ]
+  }
+ ],
+ "mazmorras": [
+  {
+   "n": "Cueva del Alquimista Olvidado",
+   "li": 1,
+   "u": 5,
+   "hint": "Una cueva sin dueño donde un viejo alquimista dejó sus notas.",
+   "st": "Tras la prueba de la secta, Bai Heng habla de una cueva donde un alquimista desapareció dejando sus recetas. Lin Yu la encuentra sellada por hongos y vapor.",
+   "f": [
+    [
+     "Murciélago de Hongo",
+     "bam",
+     [
+      "heal"
+     ],
+     "Chirrrr... el murciélago te observa con ojos brillantes.",
+     "Chirr... se esconde entre los hongos.",
+     "cla"
+    ],
+    [
+     "Gólem de Caldero",
+     "mon",
+     [
+      "regen"
+     ],
+     "Hierro y vapor: nadie toca mis calderos.",
+     "El vapor se disipa y deja una nota antigua.",
+     "esc"
+    ],
+    [
+     "Espíritu del Alquimista",
+     "pil",
+     [
+      "heal",
+      "seal"
+     ],
+     "Cien años esperé a alguien digno de mis notas.",
+     "Mis notas son tuyas. Haz buen uso de ellas.",
+     "reg"
+    ]
+   ]
+  },
+  {
+   "n": "Gruta de las Mil Hierbas",
+   "li": 3,
+   "u": 17,
+   "hint": "Entre mil hierbas crece la receta que buscas.",
+   "st": "Un rumor habla de una gruta donde cada hierba guarda un secreto. Allí, las raíces se mueven como si respiraran.",
+   "f": [
+    [
+     "Planta Carnívora",
+     "bam",
+     [],
+     "¡Ñam! Tú hueles a Qi fresco.",
+     "Mi savia... era para ti.",
+     "dra"
+    ],
+    [
+     "Hada Venenosa",
+     "lun",
+     [
+      "mist"
+     ],
+     "Mis polvos curan... o matan. Tú elige.",
+     "Qué cruel eres. Toma la receta.",
+     "dsp"
+    ],
+    [
+     "Rey de los Hongos",
+     "bam",
+     [
+      "regen",
+      "heal"
+     ],
+     "Todo lo que crece aquí me pertenece.",
+     "El bosque de hongos se inclina ante ti.",
+     "fur"
+    ]
+   ]
+  },
+  {
+   "n": "Caldero del Abismo",
+   "li": 5,
+   "u": 29,
+   "hint": "En el fondo de un caldero que nunca se apaga.",
+   "st": "En el abismo hierve un caldero eterno. Se dice que quien lo vence se lleva las recetas prohibidas de mil alquimistas.",
+   "f": [
+    [
+     "Demonio del Vapor",
+     "val",
+     [
+      "drain"
+     ],
+     "Mi vapor sofoca a los mortales.",
+     "El vapor se disipa. Solo queda una receta.",
+     "ven"
+    ],
+    [
+     "Alquimista Corrupto",
+     "tal",
+     [
+      "seal",
+      "blade"
+     ],
+     "Vendí mi alma por una fórmula. ¿Qué vendes tú?",
+     "Mi fórmula... al menos no morirá conmigo.",
+     "qi2"
+    ],
+    [
+     "Gran Caldero Viviente",
+     "pil",
+     [
+      "regen",
+      "heal",
+      "blade"
+     ],
+     "¡BLUB! El caldero despierta.",
+     "El caldero se enfría y deja caer un pergamino.",
+     "dr2"
+    ]
+   ]
+  },
+  {
+   "n": "Santuario de la Inmortalidad",
+   "li": 7,
+   "u": 41,
+   "hint": "Solo los dignos ven el santuario donde nace la inmortalidad.",
+   "st": "Más allá del Mar de Nubes se alza un santuario cuyas puertas solo se abren a quien domina el fuego y la medicina. Allí nació la primera píldora de inmortalidad.",
+   "f": [
+    [
+     "Guardián de Jade",
+     "mon",
+     [
+      "regen"
+     ],
+     "Nadie roba las fórmulas del santuario.",
+     "Las puertas ceden. Pasa, cultivador.",
+     "tor"
+    ],
+    [
+     "Sabio del Elixir Eterno",
+     "pil",
+     [
+      "heal",
+      "mist"
+     ],
+     "He bebido mil elixires y aún espero a un aprendiz.",
+     "Un aprendiz digno, al fin.",
+     "rar"
+    ],
+    [
+     "Inmortal Alquimista Primigenio",
+     "tru",
+     [
+      "blade",
+      "regen",
+      "heal",
+      "breath"
+     ],
+     "Yo inventé la inmortalidad. ¿Quién te dio permiso para buscarla?",
+     "Así que la inmortalidad es tuya. Úsala bien.",
+     "inm"
+    ]
+   ]
+  },
+  {
+   "n": "Jardín de las Píldoras Celestiales",
+   "li": 2,
+   "u": 11,
+   "hint": "Un jardín flotante donde las píldoras maduran como frutos.",
+   "st": "Entre las nubes flota un jardín donde las píldoras crecen en los árboles. Sus guardianes no regalan ni una hoja.",
+   "f": [
+    [
+     "Abeja Dorada",
+     "bam",
+     [],
+     "Bzzz... mi miel no es para mortales.",
+     "Bzz... toma una receta y vete.",
+     "cur"
+    ],
+    [
+     "Sacerdotisa del Jardín",
+     "lot",
+     [
+      "heal"
+     ],
+     "Cada fruto de este jardín lo cuidé yo.",
+     "Cuídalo como yo lo hice.",
+     "qiR"
+    ],
+    [
+     "Árbol Anciano de las Píldoras",
+     "bam",
+     [
+      "regen",
+      "heal"
+     ],
+     "Mil años dando frutos, ¿y tú quieres mis hojas?",
+     "Mis hojas son tuyas. Planta una semilla.",
+     "pet"
+    ]
+   ]
+  },
+  {
+   "n": "Cámara del Fuego Interior",
+   "li": 4,
+   "u": 23,
+   "hint": "Donde el fuego no quema, sino que enseña.",
+   "st": "En lo profundo de la montaña arde un fuego que no consume. Dicen que quien lo domina puede encender su propio Qi en pleno combate.",
+   "f": [
+    [
+     "Salamandra Ígnea",
+     "dra",
+     [
+      "blade"
+     ],
+     "¡Siente cómo arde mi fuego interior!",
+     "El fuego se apaga. Aprende de él.",
+     "fue"
+    ],
+    [
+     "Maestro del Horno Sagrado",
+     "pil",
+     [
+      "heal",
+      "regen"
+     ],
+     "El horno exige paciencia, no prisa.",
+     "Paciencia: eso fue lo que aprendiste.",
+     "rob"
+    ],
+    [
+     "Fénix Alquimista",
+     "dra",
+     [
+      "breath",
+      "heal"
+     ],
+     "Renazco cada vez que ardo.",
+     "Renaces tú también, cultivador.",
+     "cng"
+    ]
+   ]
+  }
+ ],
+ "misiones": [
+  {
+   "n": "El cargamento perdido",
+   "hint": "Un mercader pide ayuda: unos bandidos le robaron su carga de hierbas.",
+   "st": "Un mercader herido espera al borde del camino. Dice que los bandidos escondieron su carga en un barranco cercano.",
+   "rw": {
+    "s": 40,
+    "h": 4,
+    "p": 3,
+    "card": 2
+   },
+   "f": [
+    [
+     "Ladrón de Caminos",
+     "esp",
+     [],
+     "¡Suelta esa bolsa, chiquillo!",
+     "Mi cuchillo... se me cae."
+    ],
+    [
+     "Mastín de la Banda",
+     "mon",
+     [],
+     "¡Grrr! (el mastín custodia el botín).",
+     "Aúlla y huye a la montaña."
+    ],
+    [
+     "Líder de la Banda",
+     "esp",
+     [
+      "blade"
+     ],
+     "Nadie recupera lo que ya es mío.",
+     "Llévate la carga y déjame en paz."
+    ]
+   ]
+  },
+  {
+   "n": "Las pruebas ocultas",
+   "hint": "Las discípulas guardan pruebas secretas que pocos conocen.",
+   "st": "Una discípula susurra que existen pruebas que la maestra nunca anuncia. Quien las supera gana su favor.",
+   "rw": {
+    "s": 60,
+    "h": 5,
+    "p": 4,
+    "n": 1,
+    "card": 2
+   },
+   "f": [
+    [
+     "Discípula Celosa",
+     "lot",
+     [
+      "heal"
+     ],
+     "Solo yo merezco el favor de la maestra.",
+     "Quizá... me equivoqué contigo."
+    ],
+    [
+     "Guardiana del Jardín",
+     "lot",
+     [
+      "regen"
+     ],
+     "Estas flores no se tocan.",
+     "Pasa, pero con cuidado."
+    ],
+    [
+     "Maestra de la Prueba Oculta",
+     "lot",
+     [
+      "heal",
+      "regen"
+     ],
+     "¿Crees que superaste todo? Falta lo difícil.",
+     "Has superado incluso la prueba oculta."
+    ]
+   ]
+  },
+  {
+   "n": "La caravana demoníaca",
+   "hint": "Una caravana del Valle transporta tesoros robados a los mortales.",
+   "st": "Entre las dunas rojas avanza una caravana que huele a azufre y a monedas. Sus guardianes no aceptan testigos.",
+   "rw": {
+    "s": 80,
+    "p": 6,
+    "n": 2,
+    "card": 3
+   },
+   "f": [
+    [
+     "Mercader de Almas",
+     "val",
+     [
+      "drain"
+     ],
+     "Compra o muere, muchacho.",
+     "Mis almas... se escapan."
+    ],
+    [
+     "Escolta Sangrienta",
+     "val",
+     [
+      "blade"
+     ],
+     "¡Para proteger la caravana, todo vale!",
+     "Cumplí... hasta aquí."
+    ],
+    [
+     "Anciano de la Caravana",
+     "val",
+     [
+      "blade",
+      "drain"
+     ],
+     "Mil años de comercio, ¿y me detiene un niño?",
+     "Que el Valle te recuerde."
+    ]
+   ]
+  },
+  {
+   "n": "Susurros en la sombra",
+   "hint": "Algo en el palacio imita tu voz y roba tus recuerdos.",
+   "st": "Cada noche, una voz idéntica a la de Lin Yu recorre los pasillos del palacio. Nadie sabe qué busca.",
+   "rw": {
+    "s": 100,
+    "h": 6,
+    "n": 2,
+    "card": 3
+   },
+   "f": [
+    [
+     "Sombra Curiosa",
+     "lun",
+     [
+      "mist"
+     ],
+     "Te veo... aunque tú no me veas.",
+     "Me desvanezco en la bruma."
+    ],
+    [
+     "Reflejo del Palacio",
+     "lun",
+     [
+      "seal"
+     ],
+     "Soy lo que ocultas.",
+     "El espejo se quiebra."
+    ],
+    [
+     "Dama de las Mil Sombras",
+     "lun",
+     [
+      "mist",
+      "seal"
+     ],
+     "Las sombras guardan tus secretos.",
+     "Las sombras... se apagan."
+    ]
+   ]
+  },
+  {
+   "n": "Rayos olvidados",
+   "hint": "Tres altares guardan rayos que ningún cielo reclamó.",
+   "st": "Tras la tribulación, quedan altares con rayos atrapados. Los cultivadores del trueno los custodian con celo.",
+   "rw": {
+    "s": 120,
+    "p": 8,
+    "n": 3,
+    "card": 3,
+    "tes": 1
+   },
+   "f": [
+    [
+     "Discípulo del Trueno",
+     "tru",
+     [],
+     "¡El rayo me eligió a mí!",
+     "El rayo... me abandona."
+    ],
+    [
+     "Monje Fulminado",
+     "tru",
+     [
+      "regen"
+     ],
+     "Soporté mil tribulaciones.",
+     "Aún me quedan mil más."
+    ],
+    [
+     "Heraldo de la Tormenta",
+     "tru",
+     [
+      "breath"
+     ],
+     "La tormenta no pide permiso.",
+     "Que el cielo juzgue."
+    ]
+   ]
+  },
+  {
+   "n": "El jardín flotante",
+   "hint": "Sobre el mar de nubes flota un jardín que cura cualquier herida.",
+   "st": "Un jardín blanco flota entre las nubes. Dicen que sus raíces cuelgan de las estrellas y que tiene guardianes.",
+   "rw": {
+    "s": 150,
+    "h": 8,
+    "n": 3,
+    "card": 4
+   },
+   "f": [
+    [
+     "Hada de las Nubes",
+     "lot",
+     [
+      "heal"
+     ],
+     "Este jardín no es para mortales.",
+     "Las nubes te guiarán."
+    ],
+    [
+     "Alquimista Celestial",
+     "pil",
+     [
+      "regen",
+      "heal"
+     ],
+     "Cada hoja es un siglo de trabajo.",
+     "Tómala, la ganaste."
+    ],
+    [
+     "Guardián del Jardín Inmortal",
+     "bam",
+     [
+      "regen",
+      "breath"
+     ],
+     "Las raíces te sujetan.",
+     "Me arranco... y descanso."
+    ]
+   ]
+  },
+  {
+   "n": "El cementerio de espadas",
+   "hint": "Miles de espadas clavadas en la tierra aún recuerdan a sus dueños.",
+   "st": "En el abismo hay un cementerio donde cada espada es una tumba. Sus dueños no han terminado de morir.",
+   "rw": {
+    "s": 190,
+    "p": 10,
+    "n": 4,
+    "card": 4,
+    "tes": 1
+   },
+   "f": [
+    [
+     "Espectro Errante",
+     "esp",
+     [
+      "blade"
+     ],
+     "Mi espada me espera.",
+     "Por fin... descanso."
+    ],
+    [
+     "Maestro Caído",
+     "esp",
+     [
+      "blade",
+      "heal"
+     ],
+     "Mil espadas, ninguna digna.",
+     "Esta sí lo era."
+    ],
+    [
+     "Rey de las Mil Espadas",
+     "esp",
+     [
+      "blade",
+      "breath"
+     ],
+     "Quien me venza heredará mi filo.",
+     "El filo es tuyo, joven."
+    ]
+   ]
+  },
+  {
+   "n": "Los jueces del trono",
+   "hint": "Tres jueces examinan a quien aspira al trono celestial.",
+   "st": "Antes del trono, tres jueces del Cielo miden cada acto del aspirante. Ninguno ha sido vencido jamás.",
+   "rw": {
+    "s": 250,
+    "h": 10,
+    "p": 12,
+    "n": 5,
+    "card": 5,
+    "tes": 1
+   },
+   "f": [
+    [
+     "Juez del Trueno",
+     "tru",
+     [
+      "breath"
+     ],
+     "El Cielo mide tus actos.",
+     "Tus actos pesan... a tu favor."
+    ],
+    [
+     "Juez de la Luna",
+     "lun",
+     [
+      "seal",
+      "mist"
+     ],
+     "El Cielo recuerda tus dudas.",
+     "Dudas que superaste."
+    ],
+    [
+     "Juez Supremo del Trono",
+     "dra",
+     [
+      "breath",
+      "heal",
+      "blade"
+     ],
+     "Aquí se decide quién asciende.",
+     "Asciende, cultivador."
+    ]
+   ]
+  }
+ ],
+ "rt": {
+  "heal": "Cura 2 al inicio de su turno",
+  "regen": "Gana 4 de escudo cada turno",
+  "drain": "Cada 3 turnos tu Qi máximo baja 1",
+  "seal": "Cada 3 turnos pierdes 2 Qi el turno siguiente",
+  "mist": "Cada 3 turnos devora una carta de tu mano",
+  "blade": "Cada 2 turnos te hace 3 de daño directo",
+  "breath": "Cada 3 turnos Aliento Primordial: 5 de daño y cura 4"
+ },
+ "b": [
+  16,
+  20,
+  25,
+  30,
+  34,
+  38,
+  42,
+  44
+ ],
+ "mu": [
+  0.5,
+  0.7,
+  0.9,
+  1.1,
+  1.35,
+  1.7
+ ],
+ "df": [
+  "Muy fácil",
+  "Fácil",
+  "Normal",
+  "Difícil",
+  "Muy difícil",
+  "Boss final"
+ ],
+ "dc": [
+  "#8fd9b6",
+  "#6cc4a1",
+  "#d9b55b",
+  "#e09a4a",
+  "#c4483d",
+  "#b070e0"
+ ],
+ "ne": [
+  "pq",
+  "ph",
+  "gp",
+  "di",
+  "ti",
+  "es",
+  "ar",
+  "tc",
+  "mo"
+ ],
+ "rN": [
+  "Común",
+  "Poco común",
+  "Rara",
+  "Épica",
+  "Legendaria",
+  "Celestial"
+ ],
+ "rC": [
+  "#aab8b2",
+  "#6cc4a1",
+  "#5aa0e8",
+  "#b070e0",
+  "#e8a23a",
+  "#ff6a6a"
+ ],
+ "sc": {
+  "cf": "esp",
+  "ev": "esp",
+  "ld": "esp",
+  "ma": "esp",
+  "te": "esp",
+  "lc": "lot",
+  "ej": "lot",
+  "gr": "lot",
+  "ml": "lot",
+  "ab": "lot",
+  "tf": "tal",
+  "tl": "tal",
+  "fe": "tal",
+  "mt": "tal",
+  "gd": "tal",
+  "il": "lun",
+  "em": "lun",
+  "zl": "lun",
+  "vs": "lun",
+  "pl": "lun",
+  "sa": "val",
+  "dm": "val",
+  "co": "val",
+  "cd": "val",
+  "av": "val",
+  "dc": "dra",
+  "ad": "dra",
+  "rd": "dra",
+  "pf": "dra",
+  "fn": "dra"
+ },
+ "pil": {
+  "vit": {
+   "n": "Elixir de Vitalidad",
+   "c": {
+    "h": 3
+   },
+   "t": "Empiezas con +8 de vida"
+  },
+  "dra": {
+   "n": "Píldora del Dragón",
+   "c": {
+    "n": 2
+   },
+   "t": "+3 Qi en tu primer turno"
+  },
+  "cla": {
+   "n": "Píldora de Claridad",
+   "c": {
+    "h": 2,
+    "p": 1
+   },
+   "t": "Robas 2 cartas extra al inicio"
+  },
+  "esc": {
+   "n": "Píldora de Jade",
+   "c": {
+    "p": 2
+   },
+   "t": "Empiezas con 6 de escudo"
+  },
+  "reg": {
+   "n": "Elixir Regenerador",
+   "c": {
+    "h": 4,
+    "p": 2
+   },
+   "t": "Ganas 2 de escudo al inicio de cada turno (la vida solo se cura con cartas)"
+  },
+  "dsp": {
+   "n": "Píldora del Despertar",
+   "c": {
+    "h": 3,
+    "n": 1
+   },
+   "t": "+1 Qi máximo durante el combate"
+  },
+  "fur": {
+   "n": "Píldora de la Furia",
+   "c": {
+    "n": 2,
+    "p": 2
+   },
+   "t": "Haces 4 de daño al héroe enemigo al empezar"
+  },
+  "ven": {
+   "n": "Veneno de Mil Hojas",
+   "c": {
+    "h": 3,
+    "p": 3
+   },
+   "t": "El enemigo empieza con 6 de vida menos"
+  },
+  "qi2": {
+   "n": "Elixir del Qi Infinito",
+   "c": {
+    "n": 3,
+    "p": 3
+   },
+   "t": "Ganas 1 Qi extra cada turno"
+  },
+  "dr2": {
+   "n": "Elixir de la Sabiduría",
+   "c": {
+    "h": 4,
+    "n": 2,
+    "p": 2
+   },
+   "t": "Robas 1 carta extra cada turno"
+  },
+  "tor": {
+   "n": "Píldora de la Tortuga",
+   "c": {
+    "p": 5
+   },
+   "t": "Empiezas con 12 de escudo"
+  },
+  "rar": {
+   "n": "Píldora del Destino",
+   "c": {
+    "n": 4,
+    "p": 6
+   },
+   "t": "Recibes una carta Épica o mejor al empezar"
+  },
+  "inm": {
+   "n": "Píldora de Inmortalidad",
+   "c": {
+    "h": 6,
+    "n": 5,
+    "p": 8
+   },
+   "t": "Si mueres, revives con 15 de vida (una sola vez)"
+  },
+  "tes": {
+   "n": "Talismán de Escape",
+   "c": {
+    "p": 4,
+    "h": 2
+   },
+   "t": "Si fueras a morir, escapas del combate sin morir (se consume)"
+  },
+  "cur": {
+   "n": "Píldora de Curación Rápida",
+   "c": {
+    "h": 2,
+    "p": 1
+   },
+   "t": "En combate: curas 10 de vida",
+   "b": 1
+  },
+  "qiR": {
+   "n": "Píldora de Qi Instantáneo",
+   "c": {
+    "n": 1,
+    "p": 2
+   },
+   "t": "En combate: +4 Qi este turno",
+   "b": 1
+  },
+  "rob": {
+   "n": "Elixir de Visión",
+   "c": {
+    "h": 2,
+    "n": 1
+   },
+   "t": "En combate: robas 3 cartas",
+   "b": 1
+  },
+  "fue": {
+   "n": "Píldora de Fuego Interior",
+   "c": {
+    "n": 2,
+    "p": 2
+   },
+   "t": "En combate: 6 de daño al héroe enemigo",
+   "b": 1
+  },
+  "pet": {
+   "n": "Píldora de Piel de Piedra",
+   "c": {
+    "p": 3
+   },
+   "t": "En combate: +10 de escudo",
+   "b": 1
+  },
+  "cng": {
+   "n": "Píldora Congelante",
+   "c": {
+    "n": 2,
+    "p": 3
+   },
+   "t": "En combate: congela a todas las criaturas rivales",
+   "b": 1
+  },
+  "pur": {
+   "n": "Píldora Purificadora",
+   "c": {
+    "h": 3,
+    "p": 1
+   },
+   "t": "En combate: quita congelación y sellos de Qi, y cura 3",
+   "b": 1
+  },
+  "fur2": {
+   "n": "Elixir de Furia",
+   "c": {
+    "n": 2,
+    "h": 2,
+    "p": 2
+   },
+   "t": "En combate: tus criaturas ganan +2 de ataque",
+   "b": 1
+  },
+  "hea2": {
+   "n": "Píldora de Raíz Viva",
+   "c": {
+    "h": 3,
+    "p": 2
+   },
+   "t": "En combate: tus criaturas ganan +5 de vida",
+   "b": 1
+  },
+  "vnn": {
+   "n": "Veneno Instantáneo",
+   "c": {
+    "h": 2,
+    "n": 2,
+    "p": 2
+   },
+   "t": "En combate: 4 de daño a todas las criaturas rivales",
+   "b": 1
+  },
+  "rcA": {
+   "n": "Píldora de Recuperación Menor",
+   "c": {
+    "h": 3
+   },
+   "t": "Fuera de combate (Cueva de Reclusión): recupera el 25% de la vida máxima",
+   "rcv": 25,
+   "o": 1
+  },
+  "rcB": {
+   "n": "Píldora de Recuperación Media",
+   "c": {
+    "h": 4,
+    "p": 2
+   },
+   "t": "Fuera de combate (Cueva de Reclusión): recupera el 45% de la vida máxima",
+   "rcv": 45,
+   "o": 1
+  },
+  "rcC": {
+   "n": "Elixir de Recuperación Mayor",
+   "c": {
+    "h": 5,
+    "n": 2,
+    "p": 3
+   },
+   "t": "Fuera de combate (Cueva de Reclusión): recupera el 70% de la vida máxima",
+   "rcv": 70,
+   "o": 1
+  }
+ },
+ "fc": [
+  {
+   "p": 2
+  },
+  {
+   "p": 4
+  },
+  {
+   "p": 7
+  },
+  {
+   "p": 10,
+   "n": 2
+  },
+  {
+   "p": 16,
+   "n": 4
+  },
+  {
+   "p": 24,
+   "n": 8
+  }
+ ],
+ "mn": {
+  "h": "hierbas",
+  "n": "núcleos",
+  "p": "polvo de jade"
+ },
+ "pro": "Lin Yu, hijo de un leñador de la aldea Piedra Gris, despierta una raíz espiritual la noche en que una espada cae del cielo. Su maestro, el anciano Bai Heng, le advierte: «El Dao no se regala, se arrebata, tribulación a tribulación». Nueve reinos separan al mortal del Cielo, y más allá del Cielo aguardan otros seis.",
+ "st": [
+  "La noche del despertar, bandidos y un rival envidioso acechan la aldea. Lin Yu debe proteger la espada caída.",
+  "Bai Heng lo lleva a la secta del Loto de Jade. Para entrar, Lin Yu debe superar las pruebas de sus discípulas.",
+  "Un anciano demoníaco codicia la espada. Lin Yu cruza el Valle de los Demonios para impedir que caiga en sus manos.",
+  "En el Palacio de la Luna, las sombras guardan el secreto del origen de la espada, y la Emperatriz de los Mil Fantasmas lo reclama.",
+  "Para romper su límite, Lin Yu debe soportar la tribulación celestial. En el rayo aparece alguien del pasado de Bai Heng.",
+  "Más allá de la tribulación se extiende el Mar de Nubes. Solo quien cruza el Puente Celestial alcanza el Reino Inmortal.",
+  "En el abismo, la espada de Lin Yu vibra: es un fragmento del Soberano de las Mil Espadas, y quiere reunirse con él.",
+  "Ante el trono celestial, el Dao Primordial espera. Si Lin Yu cae, ningún cultivador volverá a ascender."
+ ],
+ "en": [
+  "La aldea está a salvo, pero Lin Yu ya no es un mortal.",
+  "La secta del Loto lo acepta como discípulo.",
+  "El Anciano huye herido; el Valle jura venganza.",
+  "La Emperatriz se disuelve y revela una pista: el Inmortal Caído.",
+  "Lin Yu sobrevive a la tribulación y asciende al fin de la mortalidad.",
+  "El Puente Celestial se abre ante él.",
+  "La espada y su fragmento se unen: Lin Yu empuña el Filo Eterno.",
+  "El trono queda vacío, y el Cielo, a la espera."
+ ],
+ "fin": "Con el Dao Primordial disuelto, el Cielo se abre. Lin Yu y Bai Heng ven por fin el Reino Celestial. La espada caída vuelve a casa, y el Camino continúa.",
+ "say": {
+  "esp": {
+   "a": [
+    "¡Prueba mi «{n}»!",
+    "«{n}»... ¿lograrás esquivarlo?"
+   ],
+   "s": [
+    "¡Acude a mi filo, {n}!"
+   ],
+   "d": [
+    "Mi espada se sirve de «{n}»."
+   ],
+   "h": [
+    "¿«{n}» es lo mejor que tienes?"
+   ],
+   "c": [
+    "¡{n}, corta sin piedad!",
+    "¡{n}, a la carga!"
+   ],
+   "t": [
+    "«{n}» parte en dos a tu {m}."
+   ]
+  },
+  "lot": {
+   "a": [
+    "Que «{n}» te enseñe humildad.",
+    "«{n}» florece... y también hiere."
+   ],
+   "s": [
+    "Ven, {n}, protégeme."
+   ],
+   "d": [
+    "«{n}» me renueva, mortal."
+   ],
+   "h": [
+    "«{n}» solo moja mis pétalos."
+   ],
+   "c": [
+    "{n}, golpea con suavidad letal.",
+    "Adelante, {n}."
+   ],
+   "t": [
+    "«{n}» envuelve a tu {m}."
+   ]
+  },
+  "tal": {
+   "a": [
+    "Talismán activado: «{n}».",
+    "«{n}» ya estaba escrito en tu destino."
+   ],
+   "s": [
+    "Sello roto: surge {n}."
+   ],
+   "d": [
+    "«{n}» refuerza mi formación."
+   ],
+   "h": [
+    "«{n}» cae en mi trampa."
+   ],
+   "c": [
+    "{n}, ¡cumple tu sello!",
+    "{n}, ¡atrápalo!"
+   ],
+   "t": [
+    "«{n}» sella a tu {m}."
+   ]
+  },
+  "lun": {
+   "a": [
+    "«{n}»... ¿era real lo que viste?",
+    "Mira la luna: «{n}»."
+   ],
+   "s": [
+    "Del reflejo nace {n}."
+   ],
+   "d": [
+    "«{n}» te engaña otra vez."
+   ],
+   "h": [
+    "«{n}» solo atraviesa humo."
+   ],
+   "c": [
+    "{n}, desde la sombra.",
+    "{n}, ¡atácalo en silencio!"
+   ],
+   "t": [
+    "«{n}» confunde a tu {m}."
+   ]
+  },
+  "val": {
+   "a": [
+    "¡Prueba la sangre de «{n}»!",
+    "«{n}» exige su tributo."
+   ],
+   "s": [
+    "¡Devora, {n}!"
+   ],
+   "d": [
+    "Pago con sangre: «{n}»."
+   ],
+   "h": [
+    "Tu «{n}» alimenta mi furia."
+   ],
+   "c": [
+    "{n}, ¡destroza su alma!",
+    "¡{n}, sin piedad!"
+   ],
+   "t": [
+    "«{n}» devora a tu {m}."
+   ]
+  },
+  "dra": {
+   "a": [
+    "«{n}» arde con la furia del dragón.",
+    "Tiembla ante «{n}»."
+   ],
+   "s": [
+    "¡Álzate, {n}!"
+   ],
+   "d": [
+    "«{n}» refuerza mis escamas."
+   ],
+   "h": [
+    "Tu «{n}» no araña mis escamas."
+   ],
+   "c": [
+    "{n}, ¡aplástalo!",
+    "¡{n}, ruge!"
+   ],
+   "t": [
+    "«{n}» aplasta a tu {m}."
+   ]
+  }
+ }
+}
